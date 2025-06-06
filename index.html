@@ -1,48 +1,9 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yonatan Desalegn - Economist</title>
+    <title>Yonatan D. Enaro - Economist & Consultant</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
@@ -58,6 +19,19 @@
         .social-icon {
             @apply text-gray-600 hover:text-blue-500 transition-colors duration-300 text-xl mr-2;
         }
+        .profile-img {
+            @apply rounded-full mx-auto mb-4 border-4 border-white shadow-lg;
+        }
+        .publication-link, .org-link, .project-link {
+            @apply text-blue-500 hover:underline;
+        }
+        .iframe-container {
+            @apply relative overflow-hidden w-full;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+        .iframe-container iframe {
+            @apply absolute top-0 left-0 w-full h-full;
+        }
     </style>
 </head>
 <body class="bg-gray-100 font-sans">
@@ -66,7 +40,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <h1 class="text-xl font-bold text-gray-800">Yonatan Desalegn Enaro</h1>
+                    <h1 class="text-xl font-bold text-gray-800">Yonatan D. Enaro</h1>
                 </div>
                 <div class="flex items-center space-x-4">
                     <a href="#home" class="nav-link">Home</a>
@@ -74,6 +48,7 @@
                     <a href="#skills" class="nav-link">Skills</a>
                     <a href="#experience" class="nav-link">Experience</a>
                     <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#timeline" class="nav-link">Project Timeline</a>
                     <a href="#education" class="nav-link">Education</a>
                     <a href="#publications" class="nav-link">Publications</a>
                     <a href="#contact" class="nav-link">Contact</a>
@@ -83,9 +58,10 @@
     </nav>
 
     <!-- Home Section -->
-    <section id="home" class="bg-blue-600 text-white py-20">
+    <section id="home" class="bg-teal-500 text-white py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Yonatan Desalegn Enaro</h1>
+            <img src="profile.png" alt="Yonatan D. Enaro" class="profile-img w-32 md:w-48 object-cover">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Yonatan D. Enaro</h1>
             <p class="text-xl mb-6">Economist (Ph.D.) | Data Scientist | Impact Evaluation Expert</p>
             <p class="text-lg max-w-2xl mx-auto">Over 15 years of experience in data science, monitoring & evaluation, and research across development sectors.</p>
             <a href="#contact" class="mt-6 inline-block bg-white text-blue-600 font-semibold py-2 px-4 rounded hover:bg-gray-200">Get in Touch</a>
@@ -108,7 +84,7 @@
             <h2 class="section-header">Core Skills</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Technical Skills</h3>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Hard Skills</h3>
                     <ul class="list-disc list-inside text-gray-600">
                         <li>Data cleaning, management, and integration</li>
                         <li>Advanced statistical analysis (Stata, R, Python, SPSS)</li>
@@ -120,7 +96,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Soft Skills</h3>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Technical and soft Skills</h3>
                     <ul class="list-disc list-inside text-gray-600">
                         <li>Monitoring and impact evaluation</li>
                         <li>Business analytics</li>
@@ -141,17 +117,20 @@
                 <div>
                     <h3 class="text-xl font-semibold text-gray-800">Chief Technical Officer</h3>
                     <p class="text-gray-600">Addis Ababa, Ethiopia | Jan 2022 - Present</p>
-                    <p class="text-gray-600 mt-2">Managed technical operations, wrote 18+ technical proposals, and led five consultancy projects, customizing tools and delivering high-quality reports.</p>
+                    <p class="text-gray-600"><a href="https://www.telicconsult.com" class="org-link" target="_blank">Telic Consulting PLC</a></p>
+                    <p class="text-gray-600 mt-2">Managed technical operations, wrote 18+ technical proposals, and successfully led five consultancy projects, delivering high-quality reports and aiding impact.</p>
                 </div>
                 <div>
                     <h3 class="text-xl font-semibold text-gray-800">Freelance Consultant</h3>
                     <p class="text-gray-600">Ethiopia and Remote | Aug 2020 - Present</p>
-                    <p class="text-gray-600 mt-2">Designed surveys, conducted advanced statistical analysis, and produced learning documents for consulting firms and research institutes.</p>
+                    <p class="text-gray-600"><a href="https://www.upwork.com/freelancers/~01c42408375147a801?mp_source=share" class="org-link" target="_blank">Various Organizations and individuals</a></p>
+                    <p class="text-gray-600 mt-2">Designed surveys, conducted advanced econometric analysis, and produced high quality technical outputs for businesses, NGOs and research institutes.</p>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-800">Assistant Professor, Dean, Research Coordinator</h3>
+                    <h3 class="text-xl font-semibold text-gray-800">Assistant Professor, College Dean, Research Coordinator</h3>
                     <p class="text-gray-600">Wolaita Sodo University, Ethiopia | Jun 2007 - Present</p>
-                    <p class="text-gray-600 mt-2">Taught graduate-level economics, supervised 13 theses, led academic administration, and enhanced grant evaluation processes.</p>
+                    <p class="text-gray-600"><a href="https://www.wsu.edu.et" class="org-link" target="_blank">Wolaita Sodo University</a></p>
+                    <p class="text-gray-600 mt-2">Taught graduate-level economics, supervised 13 student theses, led academic administration, and enhanced grant evaluation processes.</p>
                 </div>
             </div>
         </div>
@@ -160,25 +139,50 @@
     <!-- Projects Section -->
     <section id="projects" class="bg-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-header">Selected Projects</h2>
+            <h2 class="section-header">Projects (partial selection)</h2>
             <div class="space-y-8">
                 <div>
                     <h3 class="text-xl font-semibold text-gray-800">Tracer Study on Speed School Program</h3>
                     <p class="text-gray-600">Ethiopia | May 2024 – May 2025</p>
-                    <p class="text-gray-600 mt-2">Managed data and field operations for a tracer study evaluating the impact of an accelerated education program using Propensity Score Matching.</p>
+                    <p class="text-gray-600 mt-2">Managed data and field operations for a tracer study; data analysis and measured impact of an accelerated education program using Propensity Score Matching.</p>
+                    <p class="text-gray-600"><a href="https://example.com/speed-school" class="project-link" target="_blank">View Detailed Description</a></p>
                 </div>
                 <div>
                     <h3 class="text-xl font-semibold text-gray-800">Mobility in a Changing Climate</h3>
-                    <p class="text-gray-600">Ethiopia | May 2024 - May 2025</p>
+                    <p class="text-gray-600">Ethiopia | May 2024 - Jun 2025</p>
                     <p class="text-gray-600 mt-2">Led survey design and data analysis to study human mobility and climate change in Afar and Somali regions.</p>
+                    <p class="text-gray-600"><a href="https://example.com/mobility-climate" class="project-link" target="_blank">View Detailed Description</a></p>
                 </div>
                 <div>
                     <h3 class="text-xl font-semibold text-gray-800">Ethio Legal Shield</h3>
                     <p class="text-gray-600">Addis Ababa, Ethiopia | Oct 2022 – Dec 2024</p>
                     <p class="text-gray-600 mt-2">Developed business proposals and financial models, securing contracts and loans for a legal services startup.</p>
+                    <p class="text-gray-600"><a href="https://ethiolegalshield.com/" class="project-link" target="_blank">View Detailed Description</a></p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800">EMERTA Project</h3>
+                    <p class="text-gray-600">Amhara, Ethiopia | Feb 2024 – Apr 2024</p>
+                    <p class="text-gray-600 mt-2">Designed evaluation surveys and conducted impact analysis for a livelihoods improvement project focused on agribusiness and gemstone value chains.</p>
+                    <p class="text-gray-600"><a href="https://www.meda.org/impact/impact-reports/emerta/" class="project-link" target="_blank">View Detailed Description</a></p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800">Eastern Nile Flood Forecast</h3>
+                    <p class="text-gray-600">Ethiopia, Sudan, South Sudan | Oct 2023 – Jan 2024</p>
+                    <p class="text-gray-600 mt-2">Executed community surveys and KIIs to assess flooding patterns and early warning systems along the Nile River.</p>
+                    <p class="text-gray-600"><a href="https://example.com/eastern-nile" class="project-link" target="_blank">View Detailed Description</a></p>
                 </div>
             </div>
             <p class="text-gray-600 mt-4"><a href="#contact" class="text-blue-500 hover:underline">Contact me</a> for a full list of projects.</p>
+        </div>
+    </section>
+
+    <!-- Project Timeline Section -->
+    <section id="timeline" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-header">Project Timeline</h2>
+            <p class="text-lg text-gray-600 mb-4">Interactive Gantt chart showing the timeline of my selected projects.</p>
+            <div class="iframe-container">
+            <iframe src="gantt_chart.html" width="100%" height="500px" frameborder="0"></iframe>            </div>
         </div>
     </section>
 
@@ -190,14 +194,17 @@
                 <div>
                     <h3 class="text-xl font-semibold text-gray-800">Ph.D. in Economics</h3>
                     <p class="text-gray-600">Addis Ababa University | Jul 2020</p>
-                </div>
+                    <p class="text-gray-600"><a href="https://www.aau.edu.et/" class="aau" target="_blank">View university website</a></p>
+               </div>
                 <div>
                     <h3 class="text-xl font-semibold text-gray-800">M.Sc. in Development Economics</h3>
                     <p class="text-gray-600">Adama University | Jun 2011</p>
-                </div>
+                     <p class="text-gray-600"><a href="https://www.astu.edu.et/" class="astu" target="_blank">View university website</a></p>
+               </div>
                 <div>
                     <h3 class="text-xl font-semibold text-gray-800">B.A. in Economics</h3>
                     <p class="text-gray-600">Jimma University | Jun 2006</p>
+                     <p class="text-gray-600"><a href="https://ju.edu.et/" class="ju" target="_blank">View university website</a></p>
                 </div>
             </div>
         </div>
@@ -209,13 +216,19 @@
             <h2 class="section-header">Publications</h2>
             <div class="space-y-4">
                 <div>
-                    <p class="text-gray-600">Desalegn, Y. (2020). Off-farm Activities, Incomes and Household Welfare in Rural Ethiopia. Jönköping University and Addis Ababa University.</p>
+                    <p class="text-gray-600">**Desalegn, Y.** (2020). Off-farm Activities, Incomes and Household Welfare in Rural Ethiopia. Jönköping University and Addis Ababa University. <a href="https://ju.se/download/18.aeca3f3172bba2fe7a18f82/1592915817780/Yonatan%20Desalegn%20Enaro%20dissertation%20thesis.pdf" class="publication-link" target="_blank">View Publication</a></p>
                 </div>
                 <div>
-                    <p class="text-gray-600">Desalegn, Y. (2018). Returns to Education in Ethiopia. In: Heshmati, A., Yoon, H. (eds) Economic Growth and Development in Ethiopia. Springer, Singapore.</p>
+                    <p class="text-gray-600">**Desalegn, Y.** (2018). Returns to Education in Ethiopia. In: Heshmati, A., Yoon, H. (eds) Economic Growth and Development in Ethiopia. Springer, Singapore. <a href="https://doi.org/10.1007/978-981-10-8126-2_9" class="publication-link" target="_blank">View Publication</a></p>
                 </div>
                 <div>
-                    <p class="text-gray-600">Tegegn, T., Paulos, M., & Desalegn, Y. (2016). Determinants of Entrepreneurial Intention among Prospective Graduates of Higher Institutions Case of Wolaita Sodo University. Journal of Education and Practice, 7(16), 46-53.</p>
+                    <p class="text-gray-600">Tegegn, T., Paulos, M., & **Desalegn, Y**. (2016). Determinants of Entrepreneurial Intention among Prospective Graduates of Higher Institutions Case of Wolaita Sodo University. Journal of Education and Practice, 7(16), 46-53. <a href="https://files.eric.ed.gov/fulltext/EJ1105270.pdf" class="publication-link" target="_blank">View Publication</a></p>
+                </div>
+                <div>
+                    <p class="text-gray-600">Kassie, G.T., **Y. Desalegn**, W. Asnake, A. Haile, and B. Rischkowsky. (2021). Synthesis report on critical challenges and necessary strategic shifts in livestock market development in Ethiopia. Working Paper. ICARDA, Beirut, Lebanon. <a href="https://example.com/livestock-market" class="publication-link" target="_blank">View Publication</a></p>
+                </div>
+                <div>
+                    <p class="text-gray-600">Girma Kassie, Aynalem Haile, Woinishet Asnake, **Yonatan Desalegn**, Barbara Rischkowsky. (2021). Impact of Community-based breeding program on the performance of and income from small ruminants in Ethiopia. Working Paper. CGIAR-ICARDA. <a href="https://mel.cgiar.org/reporting/download/hash/8ae85acd49bf5b1ecbbeeeca09f300b0" class="publication-link" target="_blank">View Publication</a></p>
                 </div>
             </div>
         </div>
@@ -244,7 +257,7 @@
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-6">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p>© 2025 Yonatan Desalegn Enaro. All rights reserved.</p>
+            <p>© 2025 Yonatan D. Enaro. All rights reserved.</p>
         </div>
     </footer>
 
