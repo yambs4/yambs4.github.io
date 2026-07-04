@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Dashboard - Dr. Yonatan Desalegn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; @apply bg-gray-50; }
+        .section-header { @apply text-3xl font-bold text-gray-800 mb-6 border-b-2 border-teal-500 pb-2; }
+        .nav-link { @apply text-gray-600 hover:text-teal-600 transition-colors duration-300; }
+        .metric-card { @apply bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow; }
+        .metric-val { @apply text-3xl font-bold text-teal-600; }
+        .metric-label { @apply text-sm text-gray-500 font-medium mt-1; }
+        .project-card { @apply bg-white rounded-lg shadow-md p-5 hover:shadow-lg transition-shadow; }
+    </style>
+</head>
+<body>
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold text-gray-800">Yonatan D. Enaro</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="dashboard.html" class="nav-link font-semibold text-teal-600">Dashboard</a>
+                    <a href="blog/index.html" class="nav-link">Blog</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-teal-600 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl font-bold mb-2">Portfolio Dashboard</h1>
+            <p class="text-lg">Interactive view of projects, skills, and publications</p>
+        </div>
+    </section>
+
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="metrics" class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+                <div class="metric-card"><div class="metric-val" id="project-count">22+</div><div class="metric-label">Projects Completed</div></div>
+                <div class="metric-card"><div class="metric-val" id="survey-count">15K+</div><div class="metric-label">Survey Respondents</div></div>
+                <div class="metric-card"><div class="metric-val" id="kiis-count">200+</div><div class="metric-label">KIIs Conducted</div></div>
+                <div class="metric-card"><div class="metric-val" id="pubs-count">6</div><div class="metric-label">Publications</div></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white rounded-lg shadow-md p-6"><div id="projects-by-type"></div></div>
+                <div class="bg-white rounded-lg shadow-md p-6"><div id="software-usage"></div></div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6 mb-12">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Project Timeline</h2>
+                <div id="gantt-chart" style="height: 500px;"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">📊 Impact Metrics</h2>
+                    <div id="impact-chart"></div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">🔬 Methodologies</h2>
+                    <div class="space-y-3 text-sm">
+                        <div><strong>Impact Evaluation:</strong> PSM, DiD, IV</div>
+                        <div><strong>Survey Methods:</strong> Multi-stage, Stratified sampling</div>
+                        <div><strong>Statistical Analysis:</strong> Panel data, Multilevel modeling</div>
+                        <div><strong>ML/AI:</strong> Clustering, Classification</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>© 2025 Yonatan D. Enaro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const projectData = [
+            {title: "PSNP CD Evaluation", type: "Assessment", start: "2020-08-01", end: "2021-02-01", survey: 149, kiis: 12},
+            {title: "MSC Assessment", type: "Assessment", start: "2021-03-01", end: "2021-04-01", survey: 0, kiis: 9},
+            {title: "ENJOY Baseline", type: "Baseline", start: "2021-04-01", end: "2021-06-01", survey: 519, kiis: 80},
+            {title: "Africa RISING", type: "Literature review", start: "2021-05-01", end: "2021-12-01", survey: 0, kiis: 0},
+            {title: "Urban PSNP Baseline", type: "Baseline", start: "2021-04-01", end: "2021-08-01", survey: 4212, kiis: 0},
+        ];
+
+        const typeCounts = {};
+        projectData.forEach(p => {
+            typeCounts[p.type] = (typeCounts[p.type] || 0) + 1;
+        });
+
+        const figTypes = [{
+            type: 'pie',
+            labels: Object.keys(typeCounts),
+            values: Object.values(typeCounts),
+            marker: {colors: ['#14b8a6', '#0d9488', '#0f766e', '#115e56']},
+            textinfo: 'label+percent'
+        }];
+
+        Plotly.newPlot('projects-by-type', figTypes, {title: 'Projects by Type', height: 350, margin: {l: 20, r: 20, t: 40, b: 20}});
+
+        const softwareData = [
+            {name: "Stata", category: "Statistical", count: 18},
+            {name: "Python", category: "Programming", count: 12},
+            {name: "R", category: "Statistical", count: 8},
+            {name: "KoboToolbox", category: "Survey", count: 15},
+            {name: "SurveyCTO", category: "Survey", count: 6},
+            {name: "Power BI", category: "Visualization", count: 10},
+            {name: "ArcGIS", category: "GIS", count: 7},
+        ];
+
+        const figSw = [{
+            type: 'bar',
+            x: softwareData.map(d => d.count),
+            y: softwareData.map(d => d.name),
+            orientation: 'h',
+            marker: {color: '#14b8a6'}
+        }];
+
+        Plotly.newPlot('software-usage', figSw, {title: 'Software Usage Frequency', yaxis: {autorange: 'reversed'}, height: 350, margin: {l: 80, r: 20, t: 40, b: 20}});
+
+        const today = new Date();
+        const ganttData = projectData.map(p => ({
+            Task: p.title,
+            Start: new Date(p.start),
+            Finish: new Date(p.end),
+            Type: p.type
+        }));
+
+        const figGantt = [{
+            type: 'scatter',
+            mode: 'markers',
+            x: ganttData.map(d => d.Start),
+            y: ganttData.map(d => d.Task),
+            error_x: {
+                type: 'data',
+                symmetric: false,
+                array: ganttData.map(d => (d.Finish - d.Start) / (1000 * 60 * 60 * 24 * 30)),
+                arrayminus: ganttData.map(d => 0)
+            },
+            marker: {color: '#14b8a6', size: 12}
+        }];
+
+        Plotly.newPlot('gantt-chart', figGantt, {
+            title: 'Project Timeline',
+            xaxis: {title: 'Date'},
+            yaxis: {autorange: 'reversed'},
+            height: 450,
+            margin: {l: 200, r: 20, t: 40, b: 40}
+        });
+
+        const sectorData = [
+            {Sector: 'Agriculture', Beneficiaries: 4361},
+            {Sector: 'Education', Beneficiaries: 2095},
+            {Sector: 'Climate', Beneficiaries: 519},
+            {Sector: 'Urban Dev', Beneficiaries: 4212},
+            {Sector: 'Labor', Beneficiaries: 1556}
+        ];
+
+        const figImpact = [{
+            type: 'bar',
+            x: sectorData.map(d => d.Beneficiaries),
+            y: sectorData.map(d => d.Sector),
+            orientation: 'h',
+            marker: {color: '#14b8a6'}
+        }];
+
+        Plotly.newPlot('impact-chart', figImpact, {
+            title: 'Beneficiaries by Sector',
+            yaxis: {autorange: 'reversed'},
+            height: 250,
+            margin: {l: 80, r: 20, t: 40, b: 20}
+        });
+    </script>
+</body>
+</html>
