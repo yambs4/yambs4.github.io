@@ -54,10 +54,10 @@
             <div class="card mb-8">
                 <div class="flex items-center justify-between mb-4">
                     <h2 class="text-xl font-bold" style="color:var(--secondary)">Streamlit Dashboard</h2>
-                    <a id="dashExternal" href="#" target="_blank" class="project-link"><i class="fas fa-external-link-alt mr-1"></i>Open in new tab</a>
+                    <a id="dashExternal" href="https://cvbuild-tt7s6pbscdiah4grgjrtef.streamlit.app/" target="_blank" class="project-link"><i class="fas fa-external-link-alt mr-1"></i>Open in new tab</a>
                 </div>
-                <iframe id="dashFrame" src="about:blank" style="width:100%;height:900px;border:1px solid var(--border);border-radius:0.5rem;background:#fff"></iframe>
-                <p class="text-sm text-gray-500 mt-3">If the dashboard does not load, use the external link above. Replace <code>https://cvbuild-tt7s6pbscdiah4grgjrtef.streamlit.app/</code> in the page source with your Community Cloud URL.</p>
+                <iframe id="dashFrame" src="https://cvbuild-tt7s6pbscdiah4grgjrtef.streamlit.app/" style="width:100%;height:900px;border:1px solid var(--border);border-radius:0.5rem;background:#fff"></iframe>
+                <p class="text-sm text-gray-500 mt-3">If the dashboard does not load, use the external link above.</p>
             </div>
         </div>
     </section>
@@ -78,15 +78,5 @@
             &copy; 2025–2026 Yonatan D. Enaro. All rights reserved.
         </div>
     </footer>
-
-    <script>
-        const APP_URL = 'https://cvbuild-tt7s6pbscdiah4grgjrtef.streamlit.app/';
-        const frame = document.getElementById('dashFrame');
-        const ext = document.getElementById('dashExternal');
-        if (APP_URL && APP_URL !== 'https://cvbuild-tt7s6pbscdiah4grgjrtef.streamlit.app/') {
-            frame.src = APP_URL;
-            ext.href = APP_URL;
-        }
-    </script>
 </body>
 </html>
