@@ -7,313 +7,363 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        body {
+        :root {
+            --primary: #ea580c;
+            --primary-dark: #c2410c;
+            --secondary: #991b1b;
+            --secondary-light: #dc2626;
+            --accent: #f97316;
+            --text-light: #fef2f2;
+            --text-dark: #1f1916;
+            --bg-main: #fff7ed;
+            --card-bg: #ffffff;
+            --border: #fed7aa;
+        }
+        
+        * {
             scroll-behavior: smooth;
         }
-        .section-header {
-            @apply text-3xl font-bold text-gray-800 mb-6 border-b-2 border-blue-500 pb-2;
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #fff7ed 0%, #fef2f2 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
         }
+        
         .nav-link {
-            @apply text-gray-600 hover:text-blue-500 transition-colors duration-300;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
+            color: var(--primary-dark);
+            text-decoration: none;
         }
+        
+        .nav-link:hover {
+            background: var(--border);
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 70%;
+        }
+        
+        .nav-active {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(234, 88, 12, 0.2);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(234, 88, 12, 0.3);
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--primary);
+            position: relative;
+        }
+        
+        .section-title::before {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
         .social-icon {
-            @apply text-gray-600 hover:text-blue-500 transition-colors duration-300 text-xl mr-2;
+            color: var(--primary);
+            transition: all 0.3s ease;
+            display: inline-block;
         }
-        .profile-img {
-            @apply rounded-full mx-auto mb-4 border-4 border-white shadow-lg;
+        
+        .social-icon:hover {
+            color: var(--secondary-light);
+            transform: translateY(-2px);
         }
-        .publication-link, .org-link, .project-link {
-            @apply text-blue-500 hover:underline;
+        
+        .hero-pattern {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            position: relative;
         }
-        .iframe-container {
-            @apply relative overflow-hidden w-full;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        
+        .hero-pattern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M56 56v-4H4v4h52zM4 0v4h52V0H4zM56 0v4H4V0h52zm0 52v4H4v-4h52z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
         }
-        .iframe-container iframe {
-            @apply absolute top-0 left-0 w-full h-full;
+        
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary-light, #fff), var(--border));
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+        
+        .stat-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--primary-dark);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out;
         }
     </style>
 </head>
-<body class="bg-gray-100 font-sans">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
+<body>
+    <nav class="bg-white shadow-md sticky top-0 z-50 border-b-2 border-orange-200 backdrop-blur-sm bg-white/95">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
-                    <h1 class="text-xl font-bold text-gray-800">Yonatan D. Enaro</h1>
+                    <h1 class="text-2xl font-bold text-red-800">Yonatan D. Enaro</h1>
+                    <span class="ml-3 text-sm text-orange-600 font-medium">PhD Economist</span>
                 </div>
-                <div class="flex items-center space-x-4">
-                    <a href="#home" class="nav-link">Home</a>
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="#skills" class="nav-link">Skills</a>
-                    <a href="#experience" class="nav-link">Experience</a>
-                    <a href="#projects" class="nav-link">Projects</a>
-                    <a href="#timeline" class="nav-link">Project Timeline</a>
-                    <a href="blog/index.html" class="nav-link">Blog</a>
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="index.html" class="nav-link nav-active">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="projects.html" class="nav-link">Projects</a>
                     <a href="dashboard.html" class="nav-link">Dashboard</a>
-                    <a href="#education" class="nav-link">Education</a>
-                    <a href="#publications" class="nav-link">Publications</a>
-                    <a href="#research" class="nav-link">Research & Tools</a>
-                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="blog/index.html" class="nav-link">Blog</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
                 </div>
+                <button class="md:hidden text-orange-600 focus:outline-none"><i class="fas fa-bars text-2xl"></i></button>
             </div>
         </div>
     </nav>
 
-    <!-- Home Section -->
-    <section id="home" class="bg-teal-500 text-white py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <img src="profile.png" alt="Yonatan D. Enaro" class="profile-img w-32 md:w-48 object-cover">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Yonatan D. Enaro</h1>
-            <p class="text-xl mb-6">Economist (Ph.D.) | Data Scientist | Impact Evaluation Expert</p>
-            <p class="text-lg max-w-2xl mx-auto">Over 15 years of experience in data science, monitoring & evaluation, and research across development sectors.</p>
-            <a href="#contact" class="mt-6 inline-block bg-white text-blue-600 font-semibold py-2 px-4 rounded hover:bg-gray-200">Get in Touch</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-header">About Me</h2>
-            <p class="text-lg text-gray-600 leading-relaxed">
-                I am an Economist (Ph.D.) with over 15 years of experience in data science, monitoring and evaluation (M&E), and research in development interventions. Based in Addis Ababa, Ethiopia, I specialize in impact evaluation, survey design, and advanced statistical analysis, working across sectors like education, agriculture, and climate resilience. My work integrates rigorous methodologies with practical solutions to drive impactful outcomes.
-            </p>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="bg-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-header">Core Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Hard Skills</h3>
-                    <ul class="list-disc list-inside text-gray-600">
-                        <li>Data cleaning, management, and integration</li>
-                        <li>Advanced statistical analysis (Stata, R, Python, SPSS)</li>
-                        <li>Data visualization (Power BI, ArcGIS, QGIS)</li>
-                        <li>Thematic analysis (MaxQDA, NVivo, Atlas)</li>
-                        <li>Survey design and data collection (ODK, KoboToolbox, SurveyCTO, Qualtrics)</li>
-                        <li>Typesetting and markdown (LaTeX, RMarkdown, Quarto)</li>
-                        <li>Microsoft Office 365 suite</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Technical and soft Skills</h3>
-                    <ul class="list-disc list-inside text-gray-600">
-                        <li>Monitoring and impact evaluation</li>
-                        <li>Business analytics</li>
-                        <li>Communication and teamwork</li>
-                        <li>Leadership and project management</li>
-                        <li>Presentation and report writing</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-header">Work Experience</h2>
-            <div class="space-y-8">
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800">Chief Technical Officer</h3>
-                    <p class="text-gray-600">Addis Ababa, Ethiopia | Jan 2022 - Present</p>
-                    <p class="text-gray-600"><a href="https://www.telicconsult.com" class="org-link" target="_blank">Telic Consulting PLC</a></p>
-                    <p class="text-gray-600 mt-2">Managed technical operations, wrote 18+ technical proposals, and successfully led five consultancy projects, delivering high-quality reports and aiding impact.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800">Freelance Consultant</h3>
-                    <p class="text-gray-600">Ethiopia and Remote | Aug 2020 - Present</p>
-                    <p class="text-gray-600"><a href="https://www.upwork.com/freelancers/~01c42408375147a801?mp_source=share" class="org-link" target="_blank">Various Organizations and individuals</a></p>
-                    <p class="text-gray-600 mt-2">Designed surveys, conducted advanced econometric analysis, and produced high quality technical outputs for businesses, NGOs and research institutes.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800">Assistant Professor, College Dean, Research Coordinator</h3>
-                    <p class="text-gray-600">Wolaita Sodo University, Ethiopia | Jun 2007 - Present</p>
-                    <p class="text-gray-600"><a href="https://www.wsu.edu.et" class="org-link" target="_blank">Wolaita Sodo University</a></p>
-                    <p class="text-gray-600 mt-2">Taught graduate-level economics, supervised 13 student theses, led academic administration, and enhanced grant evaluation processes.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="bg-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-header">Projects (partial selection)</h2>
-            <div class="space-y-8">
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800">Tracer Study on Speed School Program</h3>
-                    <p class="text-gray-600">Ethiopia | May 2024 – May 2025</p>
-                    <p class="text-gray-600 mt-2">Managed data and field operations for a tracer study; data analysis and measured impact of an accelerated education program using Propensity Score Matching.</p>
-                    <p class="text-gray-600"><a href="https://example.com/speed-school" class="project-link" target="_blank">View Detailed Description</a></p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800">Mobility in a Changing Climate</h3>
-                    <p class="text-gray-600">Ethiopia | May 2024 - Jun 2025</p>
-                    <p class="text-gray-600 mt-2">Led survey design and data analysis to study human mobility and climate change in Afar and Somali regions.</p>
-                    <p class="text-gray-600"><a href="https://example.com/mobility-climate" class="project-link" target="_blank">View Detailed Description</a></p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800">Ethio Legal Shield</h3>
-                    <p class="text-gray-600">Addis Ababa, Ethiopia | Oct 2022 – Dec 2024</p>
-                    <p class="text-gray-600 mt-2">Developed business proposals and financial models, securing contracts and loans for a legal services startup.</p>
-                    <p class="text-gray-600"><a href="https://ethiolegalshield.com/" class="project-link" target="_blank">View Detailed Description</a></p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800">EMERTA Project</h3>
-                    <p class="text-gray-600">Amhara, Ethiopia | Feb 2024 – Apr 2024</p>
-                    <p class="text-gray-600 mt-2">Designed evaluation surveys and conducted impact analysis for a livelihoods improvement project focused on agribusiness and gemstone value chains.</p>
-                    <p class="text-gray-600"><a href="https://www.meda.org/impact/impact-reports/emerta/" class="project-link" target="_blank">View Detailed Description</a></p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800">Eastern Nile Flood Forecast</h3>
-                    <p class="text-gray-600">Ethiopia, Sudan, South Sudan | Oct 2023 – Jan 2024</p>
-                    <p class="text-gray-600 mt-2">Executed community surveys and KIIs to assess flooding patterns and early warning systems along the Nile River.</p>
-                    <p class="text-gray-600"><a href="https://example.com/eastern-nile" class="project-link" target="_blank">View Detailed Description</a></p>
-                </div>
-            </div>
-            <p class="text-gray-600 mt-4"><a href="#contact" class="text-blue-500 hover:underline">Contact me</a> for a full list of projects.</p>
-        </div>
-    </section>
-
-    <!-- Project Timeline Section -->
-    <section id="timeline" class="py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-header">Project Timeline</h2>
-            <p class="text-lg text-gray-600 mb-4">Interactive Gantt chart showing the timeline of my selected projects.</p>
-            <div class="iframe-container">
-            <iframe src="gantt_chart.html" width="100%" height="500px" frameborder="0"></iframe>            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-header">Education</h2>
-            <div class="space-y-4">
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800">Ph.D. in Economics</h3>
-                    <p class="text-gray-600">Addis Ababa University | Jul 2020</p>
-                    <p class="text-gray-600"><a href="https://www.aau.edu.et/" class="aau" target="_blank">View university website</a></p>
-               </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800">M.Sc. in Development Economics</h3>
-                    <p class="text-gray-600">Adama University | Jun 2011</p>
-                     <p class="text-gray-600"><a href="https://www.astu.edu.et/" class="astu" target="_blank">View university website</a></p>
-               </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800">B.A. in Economics</h3>
-                    <p class="text-gray-600">Jimma University | Jun 2006</p>
-                     <p class="text-gray-600"><a href="https://ju.edu.et/" class="ju" target="_blank">View university website</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Publications Section -->
-    <section id="publications" class="bg-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-header">Publications</h2>
-            <div class="space-y-4">
-                <div>
-                    <p class="text-gray-600">**Desalegn, Y.** (2020). Off-farm Activities, Incomes and Household Welfare in Rural Ethiopia. Jönköping University and Addis Ababa University. <a href="https://ju.se/download/18.aeca3f3172bba2fe7a18f82/1592915817780/Yonatan%20Desalegn%20Enaro%20dissertation%20thesis.pdf" class="publication-link" target="_blank">View Publication</a></p>
-                </div>
-                <div>
-                    <p class="text-gray-600">**Desalegn, Y.** (2018). Returns to Education in Ethiopia. In: Heshmati, A., Yoon, H. (eds) Economic Growth and Development in Ethiopia. Springer, Singapore. <a href="https://doi.org/10.1007/978-981-10-8126-2_9" class="publication-link" target="_blank">View Publication</a></p>
-                </div>
-                <div>
-                    <p class="text-gray-600">Tegegn, T., Paulos, M., & **Desalegn, Y**. (2016). Determinants of Entrepreneurial Intention among Prospective Graduates of Higher Institutions Case of Wolaita Sodo University. Journal of Education and Practice, 7(16), 46-53. <a href="https://files.eric.ed.gov/fulltext/EJ1105270.pdf" class="publication-link" target="_blank">View Publication</a></p>
-                </div>
-                <div>
-                    <p class="text-gray-600">Kassie, G.T., **Y. Desalegn**, W. Asnake, A. Haile, and B. Rischkowsky. (2021). Synthesis report on critical challenges and necessary strategic shifts in livestock market development in Ethiopia. Working Paper. ICARDA, Beirut, Lebanon. <a href="https://example.com/livestock-market" class="publication-link" target="_blank">View Publication</a></p>
-                </div>
-                <div>
-                    <p class="text-gray-600">Girma Kassie, Aynalem Haile, Woinishet Asnake, **Yonatan Desalegn**, Barbara Rischkowsky. (2021). Impact of Community-based breeding program on the performance of and income from small ruminants in Ethiopia. Working Paper. CGIAR-ICARDA. <a href="https://mel.cgiar.org/reporting/download/hash/8ae85acd49bf5b1ecbbeeeca09f300b0" class="publication-link" target="_blank">View Publication</a></p>
-                </div>
-            </div>
-</div>
-     </section>
-
-    <!-- Research & Tools Section -->
-    <section id="research" class="py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-header">Research & Interactive Tools</h2>
-            <p class="text-lg text-gray-600 mb-6">Explore interactive tools, policy briefs, and research outputs.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3"><i class="fas fa-robot text-teal-500 mr-2"></i> ML/AI Demos</h3>
-                    <p class="text-gray-600 mb-4">Predictive models on development indicators (coming soon).</p>
-                    <a href="#" class="text-blue-500 hover:underline font-medium">Explore →</a>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3"><i class="fas fa-file-pdf text-teal-500 mr-2"></i> Policy Briefs</h3>
-                    <p class="text-gray-600 mb-4">Evidence-based policy recommendations (coming soon).</p>
-                    <a href="#" class="text-blue-500 hover:underline font-medium">Download →</a>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3"><i class="fas fa-calculator text-teal-500 mr-2"></i> Impact Calculator</h3>
-                    <p class="text-gray-600 mb-4">Interactive ROI calculator for development programs (coming soon).</p>
-                    <a href="#" class="text-blue-500 hover:underline font-medium">Try it →</a>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3"><i class="fas fa-seedling text-teal-500 mr-2"></i> Agriculture Insights</h3>
-                    <p class="text-gray-600 mb-4">Sector-specific analysis and visualizations (coming soon).</p>
-                    <a href="#" class="text-blue-500 hover:underline font-medium">View →</a>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3"><i class="fas fa-graduation-cap text-teal-500 mr-2"></i> Working Papers</h3>
-                    <p class="text-gray-600 mb-4">Research in progress on RePEc/SSRN (links coming soon).</p>
-                    <a href="#" class="text-blue-500 hover:underline font-medium">Access →</a>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3"><i class="fas fa-images text-teal-500 mr-2"></i> Data Gallery</h3>
-                    <p class="text-gray-600 mb-4">Vizualizations from recent projects (coming soon).</p>
-                    <a href="#" class="text-blue-500 hover:underline font-medium">Browse →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-header">Contact</h2>
-            <p class="text-lg text-gray-600 mb-4">Feel free to reach out for collaborations, consulting, or inquiries.</p>
-            <div class="space-y-2">
-                <p class="text-gray-600"><strong>Email:</strong> <a href="mailto:yambs4@gmail.com" class="text-blue-500 hover:underline">yambs4@gmail.com</a></p>
-                <p class="text-gray-600"><strong>Phone:</strong> +251916829485</p>
-                <p class="text-gray-600"><strong>Location:</strong> Addis Ababa, Ethiopia</p>
-                <p class="text-gray-600">
-                    <strong>Social Profiles:</strong>
-                    <a href="https://x.com/YonDE66" class="social-icon" target="_blank"><i class="fab fa-x-twitter"></i></a>
-                    <a href="https://www.linkedin.com/in/yonatan-desalegn-19670510/" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://scholar.google.com/citations?user=igsM6loAAAAJ&hl=en&oi=ao" class="social-icon" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-                    <a href="https://github.com/yambs4" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+    <section class="hero-pattern text-white py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+            <div class="animate-fade-in">
+                <img src="profile.png" alt="Yonatan D. Enaro" class="w-36 h-36 rounded-full mx-auto mb-6 border-4 border-white/20 shadow-2xl object-cover">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Yonatan D. Enaro</h1>
+                <p class="text-xl md:text-2xl mb-6 max-w-3xl mx-auto drop-shadow">
+                    Economist (Ph.D.) | Data Scientist | Impact Evaluation Expert
                 </p>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 opacity-90">
+                    Over 15 years of experience in data science, M&E, and research across development sectors.
+                </p>
+                <a href="contact.html" class="btn-primary inline-block shadow-lg">Get in Touch</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p>© 2025 Yonatan D. Enaro. All rights reserved.</p>
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="section-title text-center">Core Expertise</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card p-8 text-center animate-fade-in">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-3xl text-orange-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-red-800 mb-3">Impact Evaluation</h3>
+                    <p class="text-gray-600">Propensity Score Matching, Difference-in-Differences, Instrumental Variables for program assessment.</p>
+                </div>
+                <div class="card p-8 text-center animate-fade-in" style="animation-delay: 0.1s">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-poll text-3xl text-orange-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-red-800 mb-3">Survey Design</h3>
+                    <p class="text-gray-600">Large-scale household surveys, KIIs, FGDs using KoboToolbox, SurveyCTO, and Qualtrics.</p>
+                </div>
+                <div class="card p-8 text-center animate-fade-in" style="animation-delay: 0.2s">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-3xl text-orange-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-red-800 mb-3">Data Science</h3>
+                    <p class="text-gray-600">Advanced statistical analysis in Stata, R, Python, and ML applications for development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="section-title text-center mb-12">Quick Overview</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold text-red-800 mb-6">Recent Highlights</h3>
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-orange-500 pl-4 bg-orange-50/50 py-2">
+                            <h4 class="font-bold text-red-800">PSNP Capacity Development Evaluation</h4>
+                            <p class="text-gray-600 text-sm">Used PSM to assess Ethiopia's PSNP program effectiveness across 9 regions. <span class="text-orange-600 font-medium">149 surveys + 12 KIIs</span></p>
+                        </div>
+                        <div class="border-l-4 border-orange-500 pl-4 bg-orange-50/50 py-2">
+                            <h4 class="font-bold text-red-800">Climate Mobility Study</h4>
+                            <p class="text-gray-600 text-sm">Mixed-methods research in Afar and Somali on environmental migration. <span class="text-orange-600 font-medium">519 surveys + 81 KIIs</span></p>
+                        </div>
+                        <div class="border-l-4 border-orange-500 pl-4 bg-orange-50/50 py-2">
+                            <h4 class="font-bold text-red-800">Speed School Tracer Study</h4>
+                            <p class="text-gray-600 text-sm">Propensity Score Matching for education program impact. Ongoing through 2025.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="stat-card">
+                        <div class="stat-number">22+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15K+</div>
+                        <div class="stat-label">Survey Respondents</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">KIIs Conducted</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">Publications</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="section-title mb-12">Explore More</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <a href="dashboard.html" class="card p-12 block group hover:scale-105 transition-transform">
+                    <i class="fas fa-chart-pie text-6xl bg-gradient-to-br from-orange-400 to-red-600 bg-clip-text text-transparent mb-4"></i>
+                    <h3 class="text-2xl font-bold text-red-800 mb-2">Portfolio Dashboard</h3>
+                    <p class="text-gray-600">Interactive view of projects, skills, and impact metrics</p>
+                    <span class="inline-block mt-4 text-orange-600 font-medium group-hover:translate-x-2 transition-transform">View Dashboard →</span>
+                </a>
+                <a href="blog/index.html" class="card p-12 block group hover:scale-105 transition-transform">
+                    <i class="fas fa-blog text-6xl bg-gradient-to-br from-orange-400 to-red-600 bg-clip-text text-transparent mb-4"></i>
+                    <h3 class="text-2xl font-bold text-red-800 mb-2">Economic Insights</h3>
+                    <p class="text-gray-600">Blog on development economics and data science methodologies</p>
+                    <span class="inline-block mt-4 text-orange-600 font-medium group-hover:translate-x-2 transition-transform">Read Blog →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gradient-to-r from-red-900 to-red-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-3">Yonatan D. Enaro</h3>
+                    <p class="text-orange-200">PhD Economist & Chief Technical Officer</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-3">Quick Links</h4>
+                    <div class="flex flex-col space-y-2">
+                        <a href="index.html" class="text-orange-200 hover:text-white transition w-fit">Home</a>
+                        <a href="about.html" class="text-orange-200 hover:text-white transition w-fit">About</a>
+                        <a href="projects.html" class="text-orange-200 hover:text-white transition w-fit">Projects</a>
+                        <a href="contact.html" class="text-orange-200 hover:text-white transition w-fit">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-3">Connect</h4>
+                    <div class="flex space-x-2">
+                        <a href="https://x.com/YonDE66" class="social-icon"><i class="fab fa-x-twitter text-2xl"></i></a>
+                        <a href="https://www.linkedin.com/in/yonatan-desalegn-19670510/" class="social-icon"><i class="fab fa-linkedin text-2xl"></i></a>
+                        <a href="https://scholar.google.com/citations?user=igsM6loAAAAJ" class="social-icon"><i class="fas fa-graduation-cap text-2xl"></i></a>
+                        <a href="https://github.com/yambs4" class="social-icon"><i class="fab fa-github text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-red-800 mt-8 pt-6 text-center text-orange-300">
+                <p>© 2025 Yonatan D. Enaro. All rights reserved.</p>
+            </div>
         </div>
     </footer>
-
-    <script>
-        // Smooth scroll for navigation links
-        document.querySelectorAll('.nav-link').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
 </body>
 </html>
