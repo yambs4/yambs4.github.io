@@ -3,92 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Dashboard - Yonatan D. Enaro</title>
+    <title>Portfolio Dashboard – Yonatan D. Enaro</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        :root {
-            --primary: #ea580c;
-            --primary-dark: #c2410c;
-            --secondary: #991b1b;
-            --accent: #f97316;
-            --bg-main: #fff7ed;
-            --border: #fed7aa;
-        }
-        
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: linear-gradient(135deg, #fff7ed 0%, #fef2f2 100%);
-            color: #1f1916;
-        }
-        
-        .nav-link {
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            color: var(--primary-dark);
-            text-decoration: none;
-        }
-        
-        .nav-link:hover {
-            background: var(--border);
-            color: var(--secondary);
-        }
-        
-        .nav-link.active, .nav-active {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-        }
-        
-        .section-title {
-            font-size: 2.25rem;
-            font-weight: 700;
-            color: var(--secondary);
-            margin-bottom: 2rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 3px solid var(--primary);
-        }
-        
-        .dashboard-card {
-            background: white;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--border);
-            padding: 2rem;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        
-        .dashboard-card:hover {
-            transform: translateY(-4px);
-        }
-        
-        .stat-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .placeholder-box {
-            background: linear-gradient(135deg, #fff7ed, #ffffff);
-            border: 2px dashed var(--primary);
-            border-radius: 1rem;
-            padding: 3rem;
-            text-align: center;
-            margin: 2rem 0;
-        }
-    </style>
 </head>
 <body>
-    <nav class="bg-white shadow-md sticky top-0 z-50 border-b-2 border-orange-200">
+    <nav class="nav-bar">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
-                    <h1 class="text-xl font-bold text-red-800">Yonatan D. Enaro</h1>
+                    <h1 class="text-xl font-bold" style="color:var(--secondary)">Yonatan D. Enaro</h1>
                 </div>
                 <div class="hidden md:flex items-center space-x-1">
                     <a href="index.html" class="nav-link">Home</a>
@@ -102,76 +27,66 @@
         </div>
     </nav>
 
-    <section class="bg-gradient-to-r from-red-800 to-orange-600 text-white py-12">
+    <section class="py-12 border-b" style="background:var(--bg-alt);border-color:var(--border)">
         <div class="max-w-7xl mx-auto px-6">
-            <h1 class="text-3xl font-bold">Portfolio Dashboard</h1>
-            <p class="mt-2 opacity-90">Interactive view of projects, skills, and publications</p>
+            <h1 class="text-3xl font-bold" style="color:var(--secondary)">Portfolio Dashboard</h1>
+            <p class="mt-2 text-gray-600">Interactive CV explorer with filters, timelines, and impact metrics.</p>
         </div>
     </section>
 
     <section class="py-16">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="section-title">Dashboard Preview</h2>
-            
-            <div class="placeholder-box">
-                <i class="fas fa-rocket text-6xl text-orange-600 mb-6"></i>
-                <h3 class="text-2xl font-bold text-red-800 mb-4">Streamlit Dashboard Coming Soon</h3>
-                <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
-                    An interactive Streamlit-powered dashboard will be available here showing live data visualizations, 
-                    project metrics, and filtering capabilities. Sign up for updates or contact me to access the beta version.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="contact.html" class="inline-block bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition">Request Access</a>
-                    <a href="https://github.com/yambs4/portfolio-dashboard" target="_blank" class="inline-block border border-orange-600 text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-orange-50 transition">View on GitHub</a>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <div class="card text-center">
+                    <div class="text-3xl font-bold" style="color:var(--primary)">27+</div>
+                    <div class="text-sm text-gray-500">Projects</div>
+                </div>
+                <div class="card text-center">
+                    <div class="text-3xl font-bold" style="color:var(--primary)">34K+</div>
+                    <div class="text-sm text-gray-500">Respondents</div>
+                </div>
+                <div class="card text-center">
+                    <div class="text-3xl font-bold" style="color:var(--primary)">300+</div>
+                    <div class="text-sm text-gray-500">KIIs</div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-                <div class="dashboard-card">
-                    <div class="stat-number">22+</div>
-                    <div class="text-sm text-gray-600 font-medium">Projects</div>
+            <div class="card mb-8">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-bold" style="color:var(--secondary)">Streamlit Dashboard</h2>
+                    <a id="dashExternal" href="#" target="_blank" class="project-link"><i class="fas fa-external-link-alt mr-1"></i>Open in new tab</a>
                 </div>
-                <div class="dashboard-card">
-                    <div class="stat-number">15K+</div>
-                    <div class="text-sm text-gray-600 font-medium">Respondents</div>
-                </div>
-                <div class="dashboard-card">
-                    <div class="stat-number">200+</div>
-                    <div class="text-sm text-gray-600 font-medium">KIIs</div>
-                </div>
-                <div class="dashboard-card">
-                    <div class="stat-number">6</div>
-                    <div class="text-sm text-gray-600 font-medium">Publications</div>
-                </div>
-            </div>
-
-            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="dashboard-card">
-                    <h3 class="text-xl font-bold text-red-800 mb-4"><i class="fas fa-chart-pie mr-2 text-orange-600"></i> Features</h3>
-                    <ul class="text-left text-gray-600 space-y-2">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Interactive project filtering</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Timeline visualization</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Software proficiency charts</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Publication explorer</li>
-                    </ul>
-                </div>
-                <div class="dashboard-card">
-                    <h3 class="text-xl font-bold text-red-800 mb-4"><i class="fas fa-tools mr-2 text-orange-600"></i> Tech Stack</h3>
-                    <ul class="text-left text-gray-600 space-y-2">
-                        <li><i class="fas fa-code text-orange-600 mr-2"></i> Python & Streamlit</li>
-                        <li><i class="fas fa-chart-line text-orange-600 mr-2"></i> Plotly & Pandas</li>
-                        <li><i class="fas fa-database text-orange-600 mr-2"></i> Excel Data Integration</li>
-                        <li><i class="fas fa-cloud text-orange-600 mr-2"></i> Deployable to Streamlit Cloud</li>
-                    </ul>
-                </div>
+                <iframe id="dashFrame" src="about:blank" style="width:100%;height:900px;border:1px solid var(--border);border-radius:0.5rem;background:#fff"></iframe>
+                <p class="text-sm text-gray-500 mt-3">If the dashboard does not load, use the external link above. Replace <code>STREAMLIT_APP_URL</code> in the page source with your Community Cloud URL.</p>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gradient-to-r from-red-900 to-red-800 text-white py-8">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <p>© 2025 Yonatan D. Enaro. All rights reserved.</p>
+    <footer class="footer">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <h3 class="text-lg font-bold">Yonatan D. Enaro</h3>
+                <p class="text-orange-200 text-sm">PhD Economist & Consulting Economist</p>
+            </div>
+            <div class="flex space-x-4 mt-4 md:mt-0">
+                <a href="https://github.com/yambs4" target="_blank"><i class="fab fa-github text-xl"></i></a>
+                <a href="https://www.linkedin.com/in/yonatan-desalegn-19670510/" target="_blank"><i class="fab fa-linkedin text-xl"></i></a>
+                <a href="https://scholar.google.com/citations?user=igsM6loAAAAJ" target="_blank"><i class="fas fa-graduation-cap text-xl"></i></a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 text-center text-orange-300 text-sm mt-6">
+            &copy; 2025–2026 Yonatan D. Enaro. All rights reserved.
         </div>
     </footer>
+
+    <script>
+        const APP_URL = 'STREAMLIT_APP_URL';
+        const frame = document.getElementById('dashFrame');
+        const ext = document.getElementById('dashExternal');
+        if (APP_URL && APP_URL !== 'STREAMLIT_APP_URL') {
+            frame.src = APP_URL;
+            ext.href = APP_URL;
+        }
+    </script>
 </body>
 </html>

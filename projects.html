@@ -3,38 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Yonatan D. Enaro</title>
+    <title>Projects – Yonatan D. Enaro</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        :root {
-            --primary: #ea580c;
-            --primary-dark: #c2410c;
-            --secondary: #991b1b;
-            --accent: #f97316;
-            --bg-main: #fff7ed;
-            --border: #fed7aa;
-        }
-        body { @apply font-sans; background: var(--bg-main); color: var(--text-dark); }
-        .nav-link { @apply px-4 py-2 rounded-lg transition-all duration-300 font-medium; color: var(--primary-dark); }
-        .nav-link:hover { background: var(--border); color: var(--secondary); }
-        .nav-active { background: var(--primary); color: white; }
-        .section-title { @apply text-3xl font-bold text-red-800 mb-8 pb-3 border-b-3 border-orange-500; }
-        .project-card { @apply bg-white rounded-xl shadow-lg border border-orange-200 p-6 hover:shadow-xl transition-shadow; }
-        .project-link { @apply text-orange-600 hover:text-red-700 font-medium; }
-    </style>
 </head>
 <body>
-    <nav class="bg-white shadow-md sticky top-0 z-50 border-b-2 border-orange-200">
+    <nav class="nav-bar">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
-                    <h1 class="text-xl font-bold text-red-800">Yonatan D. Enaro</h1>
+                    <h1 class="text-xl font-bold" style="color:var(--secondary)">Yonatan D. Enaro</h1>
                 </div>
-                <div class="hidden md:flex items-center space-x-2">
+                <div class="hidden md:flex items-center space-x-1">
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="about.html" class="nav-link">About</a>
-                    <a href="projects.html" class="nav-link nav-active">Projects</a>
+                    <a href="projects.html" class="nav-link active">Projects</a>
                     <a href="dashboard.html" class="nav-link">Dashboard</a>
                     <a href="blog/index.html" class="nav-link">Blog</a>
                     <a href="contact.html" class="nav-link">Contact</a>
@@ -43,51 +27,94 @@
         </div>
     </nav>
 
-    <section class="bg-gradient-to-r from-red-800 to-orange-600 text-white py-12">
+    <section class="py-12 border-b" style="background:var(--bg-alt);border-color:var(--border)">
         <div class="max-w-7xl mx-auto px-6">
-            <h1 class="text-3xl font-bold">Projects</h1>
+            <h1 class="text-3xl font-bold" style="color:var(--secondary)">Projects & Consultancies</h1>
+            <p class="mt-2 text-gray-600 max-w-3xl">A running list of research, evaluation, and advisory assignments across development sectors. Three core repositories with reproducible code are linked where available.</p>
+            <div class="mt-4 flex flex-wrap items-center gap-3">
+                <select id="typeFilter" class="border rounded-lg px-3 py-2 text-sm" style="border-color:var(--border);color:var(--text-dark)">
+                    <option value="all">All types</option>
+                </select>
+                <span id="count" class="text-sm text-gray-500"></span>
+            </div>
         </div>
     </section>
 
     <section class="py-16">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="section-title">Selected Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="project-card">
-                    <h3 class="text-xl font-bold text-red-800 mb-2">Tracer Study on Speed School Program</h3>
-                    <p class="text-orange-600 text-sm mb-3">Ethiopia | May 2024 – May 2025</p>
-                    <p class="text-gray-600 mb-4">Managed data and field operations for a tracer study; measured impact of an accelerated education program using Propensity Score Matching.</p>
-                    <a href="https://example.com/speed-school" class="project-link" target="_blank">View Details →</a>
-                </div>
-                <div class="project-card">
-                    <h3 class="text-xl font-bold text-red-800 mb-2">Mobility in a Changing Climate</h3>
-                    <p class="text-orange-600 text-sm mb-3">Ethiopia | May 2024 - Jun 2025</p>
-                    <p class="text-gray-600 mb-4">Led survey design and data analysis to study human mobility and climate change in Afar and Somali regions.</p>
-                    <a href="https://example.com/mobility-climate" class="project-link" target="_blank">View Details →</a>
-                </div>
-                <div class="project-card">
-                    <h3 class="text-xl font-bold text-red-800 mb-2">PSNP Capacity Development Evaluation</h3>
-                    <p class="text-orange-600 text-sm mb-3">Ethiopia | Aug 2020 - Feb 2021</p>
-                    <p class="text-gray-600 mb-4">Evaluated PSNP IV capacity development investments using mixed methods and PSM analysis across 9 regions.</p>
-                    <a href="https://www.plan-eval.com/english/portfolio.asp?id=127" class="project-link" target="_blank">View Report →</a>
-                </div>
-                <div class="project-card">
-                    <h3 class="text-xl font-bold text-red-800 mb-2">EMERTA Project</h3>
-                    <p class="text-orange-600 text-sm mb-3">Amhara, Ethiopia | Feb 2024 – Apr 2024</p>
-                    <p class="text-gray-600 mb-4">Designed evaluation surveys and conducted impact analysis for agribusiness and gemstone value chains.</p>
-                    <a href="https://www.meda.org/impact/impact-reports/emerta/" class="project-link" target="_blank">View Report →</a>
-                </div>
-            </div>
-            <div class="mt-12 text-center">
-                <a href="contact.html" class="inline-block bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition">Get Full Project List</a>
-            </div>
+            <div id="projects" class="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
         </div>
     </section>
 
-    <footer class="bg-red-900 text-white py-8">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <p>© 2025 Yonatan D. Enaro. All rights reserved.</p>
+    <footer class="footer">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <h3 class="text-lg font-bold">Yonatan D. Enaro</h3>
+                <p class="text-orange-200 text-sm">PhD Economist & Consulting Economist</p>
+            </div>
+            <div class="flex space-x-4 mt-4 md:mt-0">
+                <a href="https://github.com/yambs4" target="_blank"><i class="fab fa-github text-xl"></i></a>
+                <a href="https://www.linkedin.com/in/yonatan-desalegn-19670510/" target="_blank"><i class="fab fa-linkedin text-xl"></i></a>
+                <a href="https://scholar.google.com/citations?user=igsM6loAAAAJ" target="_blank"><i class="fas fa-graduation-cap text-xl"></i></a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 text-center text-orange-300 text-sm mt-6">
+            &copy; 2025–2026 Yonatan D. Enaro. All rights reserved.
         </div>
     </footer>
+
+    <script>
+        async function loadProjects() {
+            const res = await fetch('projects.json');
+            const data = await res.json();
+            const projects = data.projects;
+
+            const types = Array.from(new Set(projects.map(p => p.type)));
+            const filter = document.getElementById('typeFilter');
+            types.forEach(t => {
+                const opt = document.createElement('option');
+                opt.value = t;
+                opt.textContent = t;
+                filter.appendChild(opt);
+            });
+
+            function render(list) {
+                const container = document.getElementById('projects');
+                const count = document.getElementById('count');
+                container.innerHTML = '';
+                count.textContent = `${list.length} project${list.length===1?'':'s'}`;
+                list.forEach(p => {
+                    const tech = (p.tech||[]).map(t => `<span class="tag">${t}</span>`).join('');
+                    const counts = [];
+                    if (p.respondents > 0) counts.push(`<span>${p.respondents.toLocaleString()} responses</span>`);
+                    if (p.kiis > 0) counts.push(`<span>${p.kiis} KIIs</span>`);
+                    const repo = p.repo ? `<a class="project-link" href="${p.repo}" target="_blank"><i class="fab fa-github mr-1"></i>Code repository</a>` : `<span class="text-sm text-gray-500">Repository: Private / NDA-protected</span>`;
+                    const card = document.createElement('div');
+                    card.className = 'project-card';
+                    card.innerHTML = `
+                        <div class="project-meta">${p.type} &middot; ${p.duration} &middot; ${p.location}</div>
+                        <div class="project-title">${p.title}</div>
+                        <div class="text-sm text-gray-600 mb-2">${p.client}${p.donor ? ' · ' + p.donor : ''}</div>
+                        <p class="project-desc mb-3">${p.description}</p>
+                        <div class="flex flex-wrap mb-3">${tech}</div>
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-gray-500">${counts.join(' · ')}</div>
+                            <div>${repo}</div>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            }
+
+            render(projects);
+
+            filter.addEventListener('change', e => {
+                const val = e.target.value;
+                render(val === 'all' ? projects : projects.filter(p => p.type === val));
+            });
+        }
+
+        loadProjects().catch(console.error);
+    </script>
 </body>
 </html>

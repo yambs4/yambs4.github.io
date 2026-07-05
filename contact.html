@@ -3,80 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Yonatan D. Enaro</title>
+    <title>Contact – Yonatan D. Enaro</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        :root {
-            --primary: #ea580c;
-            --primary-dark: #c2410c;
-            --secondary: #991b1b;
-            --accent: #f97316;
-            --bg-main: #fff7ed;
-            --border: #fed7aa;
-        }
-        
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: linear-gradient(135deg, #fff7ed 0%, #fef2f2 100%);
-            color: #1f1916;
-        }
-        
-        .nav-link {
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            color: var(--primary-dark);
-            text-decoration: none;
-        }
-        
-        .nav-link:hover {
-            background: var(--border);
-            color: var(--secondary);
-        }
-        
-        .nav-link.active {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-        }
-        
-        .section-title {
-            font-size: 2.25rem;
-            font-weight: 700;
-            color: var(--secondary);
-            margin-bottom: 2rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 3px solid var(--primary);
-        }
-        
-        .social-icon {
-            color: var(--primary);
-            font-size: 1.25rem;
-            margin-right: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .social-icon:hover {
-            color: var(--secondary-light);
-            transform: translateY(-2px);
-        }
-        
-        .contact-card {
-            background: white;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--border);
-            padding: 2rem;
-        }
-    </style>
 </head>
 <body>
-    <nav class="bg-white shadow-md sticky top-0 z-50 border-b-2 border-orange-200">
+    <nav class="nav-bar">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
-                    <h1 class="text-xl font-bold text-red-800">Yonatan D. Enaro</h1>
+                    <h1 class="text-xl font-bold" style="color:var(--secondary)">Yonatan D. Enaro</h1>
                 </div>
                 <div class="hidden md:flex items-center space-x-1">
                     <a href="index.html" class="nav-link">Home</a>
@@ -90,25 +27,18 @@
         </div>
     </nav>
 
-    <section class="bg-gradient-to-r from-red-800 to-orange-600 text-white py-12">
-        <div class="max-w-7xl mx-auto px-6">
-            <h1 class="text-3xl font-bold">Contact</h1>
-            <p class="mt-2 opacity-90">Get in touch for collaborations, consulting, or inquiries</p>
-        </div>
-    </section>
-
     <section class="py-16">
         <div class="max-w-4xl mx-auto px-6">
             <h2 class="section-title text-center">Get in Touch</h2>
-            
-            <div class="contact-card mb-12">
+
+            <div class="card mb-12">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
-                        <h3 class="text-xl font-bold text-red-800 mb-6">Contact Information</h3>
+                        <h3 class="text-xl font-bold mb-6" style="color:var(--secondary)">Contact Information</h3>
                         <div class="space-y-4">
                             <div>
                                 <p class="text-gray-500 text-sm uppercase">Email</p>
-                                <a href="mailto:yambs4@gmail.com" class="text-lg text-orange-600 hover:text-red-700 font-medium">yambs4@gmail.com</a>
+                                <a href="mailto:yambs4@gmail.com" class="text-lg font-medium project-link">yambs4@gmail.com</a>
                             </div>
                             <div>
                                 <p class="text-gray-500 text-sm uppercase">Phone</p>
@@ -119,33 +49,38 @@
                                 <p class="text-lg font-medium">Addis Ababa, Ethiopia</p>
                             </div>
                         </div>
-                        
-                        <h3 class="text-xl font-bold text-red-800 mt-8 mb-4">Connect</h3>
+
+                        <h3 class="text-xl font-bold mt-8 mb-4" style="color:var(--secondary)">Connect</h3>
                         <div class="flex flex-wrap gap-4">
-                            <a href="https://x.com/YonDE66" class="social-icon" target="_blank"><i class="fab fa-x-twitter"></i></a>
-                            <a href="https://www.linkedin.com/in/yonatan-desalegn-19670510/" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
-                            <a href="https://scholar.google.com/citations?user=igsM6loAAAAJ" class="social-icon" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-                            <a href="https://github.com/yambs4" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://x.com/YonDE66" class="project-link text-xl" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                            <a href="https://www.linkedin.com/in/yonatan-desalegn-19670510/" class="project-link text-xl" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://scholar.google.com/citations?user=igsM6loAAAAJ" class="project-link text-xl" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+                            <a href="https://github.com/yambs4" class="project-link text-xl" target="_blank"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
-                    
+
                     <div>
-                        <h3 class="text-xl font-bold text-red-800 mb-6">Professional Focus</h3>
+                        <h3 class="text-xl font-bold mb-6" style="color:var(--secondary)">Professional Focus</h3>
                         <ul class="space-y-3 text-gray-600">
-                            <li class="flex"><i class="fas fa-chevron-right text-orange-600 mr-2 mt-1"></i>Impact Evaluation & M&E Consulting</li>
-                            <li class="flex"><i class="fas fa-chevron-right text-orange-600 mr-2 mt-1"></i>Survey Design & Data Collection</li>
-                            <li class="flex"><i class="fas fa-chevron-right text-orange-600 mr-2 mt-1"></i>Econometric Analysis</li>
-                            <li class="flex"><i class="fas fa-chevron-right text-orange-600 mr-2 mt-1"></i>Data Visualization & Dashboards</li>
+                            <li class="flex"><i class="fas fa-chevron-right mr-2 mt-1" style="color:var(--primary)"></i>Impact Evaluation & M&E Consulting</li>
+                            <li class="flex"><i class="fas fa-chevron-right mr-2 mt-1" style="color:var(--primary)"></i>Survey Design & Data Collection</li>
+                            <li class="flex"><i class="fas fa-chevron-right mr-2 mt-1" style="color:var(--primary)"></i>Econometric Analysis</li>
+                            <li class="flex"><i class="fas fa-chevron-right mr-2 mt-1" style="color:var(--primary)"></i>Data Visualization & Dashboards</li>
+                            <li class="flex"><i class="fas fa-chevron-right mr-2 mt-1" style="color:var(--primary)"></i>Reproducible Reporting</li>
+                            <li class="flex"><i class="fas fa-chevron-right mr-2 mt-1" style="color:var(--primary)"></i>Communication Materials & Policy Briefs</li>
                         </ul>
+                        <div class="mt-8">
+                            <a href="dashboard.html" class="btn">View Portfolio Dashboard</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gradient-to-r from-red-900 to-red-800 text-white py-8">
+    <footer class="footer">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <p>© 2025 Yonatan D. Enaro. All rights reserved.</p>
+            &copy; 2025–2026 Yonatan D. Enaro. All rights reserved.
         </div>
     </footer>
 </body>

@@ -3,366 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yonatan D. Enaro - Economist & Consultant</title>
+    <title>Yonatan D. Enaro – Economist & Data Scientist</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        :root {
-            --primary: #ea580c;
-            --primary-dark: #c2410c;
-            --secondary: #991b1b;
-            --secondary-light: #dc2626;
-            --accent: #f97316;
-            --text-light: #fef2f2;
-            --text-dark: #1f1916;
-            --bg-main: #fff7ed;
-            --card-bg: #ffffff;
-            --border: #fed7aa;
-        }
-        
-        * {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #fff7ed 0%, #fef2f2 100%);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-        
-        .nav-link {
-            position: relative;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-weight: 500;
-            color: var(--primary-dark);
-            text-decoration: none;
-        }
-        
-        .nav-link:hover {
-            background: var(--border);
-            color: var(--secondary);
-            transform: translateY(-2px);
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-        
-        .nav-link:hover::after {
-            width: 70%;
-        }
-        
-        .nav-active {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            box-shadow: 0 4px 6px -1px rgba(234, 88, 12, 0.2);
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            padding: 0.75rem 2rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(234, 88, 12, 0.3);
-        }
-        
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-        
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-        
-        .card {
-            background: var(--card-bg);
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-        
-        .card:hover {
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-            transform: translateY(-2px);
-        }
-        
-        .section-title {
-            font-size: 2.25rem;
-            font-weight: 700;
-            color: var(--secondary);
-            margin-bottom: 2rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 3px solid var(--primary);
-            position: relative;
-        }
-        
-        .section-title::before {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: var(--accent);
-        }
-        
-        .social-icon {
-            color: var(--primary);
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        
-        .social-icon:hover {
-            color: var(--secondary-light);
-            transform: translateY(-2px);
-        }
-        
-        .hero-pattern {
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-            position: relative;
-        }
-        
-        .hero-pattern::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M56 56v-4H4v4h52zM4 0v4h52V0H4zM56 0v4H4V0h52zm0 52v4H4v-4h52z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.3;
-        }
-        
-        .stat-card {
-            background: linear-gradient(135deg, var(--primary-light, #fff), var(--border));
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border);
-        }
-        
-        .stat-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--primary-dark);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate-fade-in {
-            animation: fadeInUp 0.6s ease-out;
-        }
-    </style>
 </head>
 <body>
-    <nav class="bg-white shadow-md sticky top-0 z-50 border-b-2 border-orange-200 backdrop-blur-sm bg-white/95">
+    <nav class="nav-bar">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
-                    <h1 class="text-2xl font-bold text-red-800">Yonatan D. Enaro</h1>
-                    <span class="ml-3 text-sm text-orange-600 font-medium">PhD Economist</span>
+                    <h1 class="text-xl font-bold" style="color:var(--secondary)">Yonatan D. Enaro</h1>
+                    <span class="ml-3 text-sm" style="color:var(--primary)">PhD Economist</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-1">
-                    <a href="index.html" class="nav-link nav-active">Home</a>
+                    <a href="index.html" class="nav-link active">Home</a>
                     <a href="about.html" class="nav-link">About</a>
                     <a href="projects.html" class="nav-link">Projects</a>
                     <a href="dashboard.html" class="nav-link">Dashboard</a>
                     <a href="blog/index.html" class="nav-link">Blog</a>
                     <a href="contact.html" class="nav-link">Contact</a>
                 </div>
-                <button class="md:hidden text-orange-600 focus:outline-none"><i class="fas fa-bars text-2xl"></i></button>
             </div>
         </div>
     </nav>
 
-    <section class="hero-pattern text-white py-24 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
-            <div class="animate-fade-in">
-                <img src="profile.png" alt="Yonatan D. Enaro" class="w-36 h-36 rounded-full mx-auto mb-6 border-4 border-white/20 shadow-2xl object-cover">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Yonatan D. Enaro</h1>
-                <p class="text-xl md:text-2xl mb-6 max-w-3xl mx-auto drop-shadow">
-                    Economist (Ph.D.) | Data Scientist | Impact Evaluation Expert
-                </p>
-                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 opacity-90">
-                    Over 15 years of experience in data science, M&E, and research across development sectors.
-                </p>
-                <a href="contact.html" class="btn-primary inline-block shadow-lg">Get in Touch</a>
+    <header class="py-20 border-b" style="background:var(--bg-alt);border-color:var(--border)">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                <div class="lg:col-span-2">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4" style="color:var(--secondary)">Yonatan D. Enaro</h1>
+                    <p class="text-xl mb-6" style="color:var(--primary)">Economist (Ph.D.) | Impact Evaluation, Survey Design & Data Science</p>
+                    <p class="text-gray-600 max-w-2xl mb-8">Over 15 years of experience designing and evaluating development interventions across climate resilience, education, agriculture, and social protection. Completed 27 consultancies with 34K+ respondents and 300+ key informants.</p>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="projects.html" class="btn">View Projects</a>
+                        <a href="dashboard.html" class="btn" style="background:transparent;color:var(--primary);border:2px solid var(--primary)">Open Dashboard</a>
+                    </div>
+                </div>
+                <div class="hidden lg:block">
+                    <div class="card p-6">
+                        <h3 class="text-lg font-bold mb-4" style="color:var(--secondary)">Snapshot</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <div class="text-3xl font-bold" style="color:var(--primary)">27+</div>
+                                <div class="text-sm text-gray-500">Projects</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold" style="color:var(--primary)">34K+</div>
+                                <div class="text-sm text-gray-500">Respondents</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold" style="color:var(--primary)">300+</div>
+                                <div class="text-sm text-gray-500">KIIs</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold" style="color:var(--primary)">6</div>
+                                <div class="text-sm text-gray-500">Publications</div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t" style="border-color:var(--border)">
+                            <a href="contact.html" class="project-link"><i class="fas fa-paper-plane mr-1"></i>Get in touch</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </header>
 
     <section class="py-20">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="section-title text-center">Core Expertise</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="card p-8 text-center animate-fade-in">
-                    <div class="w-16 h-16 bg-orange-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-chart-line text-3xl text-orange-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-red-800 mb-3">Impact Evaluation</h3>
-                    <p class="text-gray-600">Propensity Score Matching, Difference-in-Differences, Instrumental Variables for program assessment.</p>
-                </div>
-                <div class="card p-8 text-center animate-fade-in" style="animation-delay: 0.1s">
-                    <div class="w-16 h-16 bg-orange-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-poll text-3xl text-orange-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-red-800 mb-3">Survey Design</h3>
-                    <p class="text-gray-600">Large-scale household surveys, KIIs, FGDs using KoboToolbox, SurveyCTO, and Qualtrics.</p>
-                </div>
-                <div class="card p-8 text-center animate-fade-in" style="animation-delay: 0.2s">
-                    <div class="w-16 h-16 bg-orange-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-laptop-code text-3xl text-orange-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-red-800 mb-3">Data Science</h3>
-                    <p class="text-gray-600">Advanced statistical analysis in Stata, R, Python, and ML applications for development.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="section-title text-center mb-12">Quick Overview</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h3 class="text-2xl font-bold text-red-800 mb-6">Recent Highlights</h3>
-                    <div class="space-y-6">
-                        <div class="border-l-4 border-orange-500 pl-4 bg-orange-50/50 py-2">
-                            <h4 class="font-bold text-red-800">PSNP Capacity Development Evaluation</h4>
-                            <p class="text-gray-600 text-sm">Used PSM to assess Ethiopia's PSNP program effectiveness across 9 regions. <span class="text-orange-600 font-medium">149 surveys + 12 KIIs</span></p>
-                        </div>
-                        <div class="border-l-4 border-orange-500 pl-4 bg-orange-50/50 py-2">
-                            <h4 class="font-bold text-red-800">Climate Mobility Study</h4>
-                            <p class="text-gray-600 text-sm">Mixed-methods research in Afar and Somali on environmental migration. <span class="text-orange-600 font-medium">519 surveys + 81 KIIs</span></p>
-                        </div>
-                        <div class="border-l-4 border-orange-500 pl-4 bg-orange-50/50 py-2">
-                            <h4 class="font-bold text-red-800">Speed School Tracer Study</h4>
-                            <p class="text-gray-600 text-sm">Propensity Score Matching for education program impact. Ongoing through 2025.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="stat-card">
-                        <div class="stat-number">22+</div>
-                        <div class="stat-label">Projects Completed</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">15K+</div>
-                        <div class="stat-label">Survey Respondents</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">200+</div>
-                        <div class="stat-label">KIIs Conducted</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">6</div>
-                        <div class="stat-label">Publications</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-16">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <h2 class="section-title mb-12">Explore More</h2>
+            <h2 class="section-title">Selected Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <a href="dashboard.html" class="card p-12 block group hover:scale-105 transition-transform">
-                    <i class="fas fa-chart-pie text-6xl bg-gradient-to-br from-orange-400 to-red-600 bg-clip-text text-transparent mb-4"></i>
-                    <h3 class="text-2xl font-bold text-red-800 mb-2">Portfolio Dashboard</h3>
-                    <p class="text-gray-600">Interactive view of projects, skills, and impact metrics</p>
-                    <span class="inline-block mt-4 text-orange-600 font-medium group-hover:translate-x-2 transition-transform">View Dashboard →</span>
-                </a>
-                <a href="blog/index.html" class="card p-12 block group hover:scale-105 transition-transform">
-                    <i class="fas fa-blog text-6xl bg-gradient-to-br from-orange-400 to-red-600 bg-clip-text text-transparent mb-4"></i>
-                    <h3 class="text-2xl font-bold text-red-800 mb-2">Economic Insights</h3>
-                    <p class="text-gray-600">Blog on development economics and data science methodologies</p>
-                    <span class="inline-block mt-4 text-orange-600 font-medium group-hover:translate-x-2 transition-transform">Read Blog →</span>
-                </a>
+                <article class="project-card">
+                    <div class="project-meta">Terminal Evaluation · Ethiopia · May 2024 – Jun 2025</div>
+                    <h3 class="project-title">Mobility in a Changing Climate</h3>
+                    <p class="project-desc mb-3">Led quant-qual fieldwork in Afar and Somali, produced analytical report, capacity-building toolbox, and uptake assessment.</p>
+                    <div class="flex flex-wrap mb-3">
+                        <span class="tag">Stata</span>
+                        <span class="tag">R</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">QGIS</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-500">510 respondents · 32 KIIs</span>
+                        <a href="projects.html" class="project-link">Details →</a>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-meta">Terminal Evaluation · Ethiopia · May 2024 – May 2025</div>
+                    <h3 class="project-title">Speed School Tracer Study</h3>
+                    <p class="project-desc mb-3">Impact evaluation of alternative education using PSM; designed tools, managed KoboToolbox deployment, and authored tracer report.</p>
+                    <div class="flex flex-wrap mb-3">
+                        <span class="tag">Stata</span>
+                        <span class="tag">R</span>
+                        <span class="tag">KoboToolbox</span>
+                        <span class="tag">MaxQDA</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-500">420 respondents</span>
+                        <a href="https://github.com/yambs4/SSP_tracer_study" target="_blank" class="project-link"><i class="fab fa-github mr-1"></i>Repository</a>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-meta">Terminal Evaluation · Ethiopia · Apr 2025 – Aug 2025</div>
+                    <h3 class="project-title">CBT & DIF Methodology Evaluation</h3>
+                    <p class="project-desc mb-3">PSM impact evaluation and logframe population for governance and food security program across four regions.</p>
+                    <div class="flex flex-wrap mb-3">
+                        <span class="tag">Python</span>
+                        <span class="tag">R</span>
+                        <span class="tag">Stata</span>
+                        <span class="tag">MaxQDA</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-500">TLMIE</span>
+                        <a href="https://github.com/yambs4/TLMIE_endline_eval" target="_blank" class="project-link"><i class="fab fa-github mr-1"></i>Repository</a>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-meta">Evaluation · Oromia & South Ethiopia · Aug 2025 – Feb 2026</div>
+                    <h3 class="project-title">ACRFSE RCT Evaluation Design</h3>
+                    <p class="project-desc mb-3">Co-designed an RCT calibrating climate and finance resilience interventions for 10,000 smallholder farmers.</p>
+                    <div class="flex flex-wrap mb-3">
+                        <span class="tag">R</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-500">Policy Studies Institute</span>
+                        <a href="projects.html" class="project-link">Details →</a>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-meta">Evaluation · Amhara & Oromia · Dec 2025 – Feb 2026</div>
+                    <h3 class="project-title">Family MUAC Pilot Study Endline</h3>
+                    <p class="project-desc mb-3">Cluster RCT (3 arms, 1,463 caregiver-child pairs) evaluating caregiver training and cost-effectiveness of acute malnutrition screening.</p>
+                    <div class="flex flex-wrap mb-3">
+                        <span class="tag">Stata</span>
+                        <span class="tag">Excel</span>
+                        <span class="tag">DiD</span>
+                        <span class="tag">CEA</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-500">1,463 pairs · DiD + CEA</span>
+                        <a href="projects.html" class="project-link">Details →</a>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-meta">Terminal Evaluation · Amhara · Feb 2024 – Apr 2024</div>
+                    <h3 class="project-title">EMERTA Project</h3>
+                    <p class="project-desc mb-3">Used PSM to measure agribusiness and gemstone value chain impact; built a Power BI dashboard for project logic tracking.</p>
+                    <div class="flex flex-wrap mb-3">
+                        <span class="tag">Stata</span>
+                        <span class="tag">R</span>
+                        <span class="tag">Excel</span>
+                        <span class="tag">Power BI</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-500">3,518 respondents</span>
+                        <a href="https://github.com/yambs4/EMERTA_project" target="_blank" class="project-link"><i class="fab fa-github mr-1"></i>Repository</a>
+                    </div>
+                </article>
+            </div>
+            <div class="mt-10">
+                <a href="projects.html" class="btn">Browse All 27 Projects</a>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gradient-to-r from-red-900 to-red-800 text-white py-12">
+    <section class="py-20 border-t" style="background:var(--bg-alt);border-color:var(--border)">
         <div class="max-w-7xl mx-auto px-6">
+            <h2 class="section-title">Methodological Toolbox</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-3">Yonatan D. Enaro</h3>
-                    <p class="text-orange-200">PhD Economist & Chief Technical Officer</p>
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-3" style="color:var(--secondary)"><i class="fas fa-flask mr-2" style="color:var(--primary)"></i>Impact Evaluation</h3>
+                    <p class="text-gray-600">Propensity Score Matching, Difference-in-Differences, RCT calibration, Instrumental Variables, and Cost-Effectiveness Analysis.</p>
                 </div>
-                <div>
-                    <h4 class="font-semibold mb-3">Quick Links</h4>
-                    <div class="flex flex-col space-y-2">
-                        <a href="index.html" class="text-orange-200 hover:text-white transition w-fit">Home</a>
-                        <a href="about.html" class="text-orange-200 hover:text-white transition w-fit">About</a>
-                        <a href="projects.html" class="text-orange-200 hover:text-white transition w-fit">Projects</a>
-                        <a href="contact.html" class="text-orange-200 hover:text-white transition w-fit">Contact</a>
-                    </div>
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-3" style="color:var(--secondary)"><i class="fas fa-clipboard-list mr-2" style="color:var(--primary)"></i>Survey Engineering</h3>
+                    <p class="text-gray-600">High-frequency data quality checks, multi-stage sampling, Kobo Toolbox, SurveyCTO, ODK, XLSForm, and large-scale enumerator training.</p>
                 </div>
-                <div>
-                    <h4 class="font-semibold mb-3">Connect</h4>
-                    <div class="flex space-x-2">
-                        <a href="https://x.com/YonDE66" class="social-icon"><i class="fab fa-x-twitter text-2xl"></i></a>
-                        <a href="https://www.linkedin.com/in/yonatan-desalegn-19670510/" class="social-icon"><i class="fab fa-linkedin text-2xl"></i></a>
-                        <a href="https://scholar.google.com/citations?user=igsM6loAAAAJ" class="social-icon"><i class="fas fa-graduation-cap text-2xl"></i></a>
-                        <a href="https://github.com/yambs4" class="social-icon"><i class="fab fa-github text-2xl"></i></a>
-                    </div>
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-3" style="color:var(--secondary)"><i class="fas fa-chart-bar mr-2" style="color:var(--primary)"></i>Data Science</h3>
+                    <p class="text-gray-600">Econometric modelling in Stata, R, Python; visualization with Power BI, Plotly, and ArcGIS; reproducible reporting with LaTeX and Quarto.</p>
                 </div>
             </div>
-            <div class="border-t border-red-800 mt-8 pt-6 text-center text-orange-300">
-                <p>© 2025 Yonatan D. Enaro. All rights reserved.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <h3 class="text-lg font-bold">Yonatan D. Enaro</h3>
+                <p class="text-orange-200 text-sm">PhD Economist & Consulting Economist</p>
             </div>
+            <div class="flex space-x-4 mt-4 md:mt-0">
+                <a href="https://github.com/yambs4" target="_blank"><i class="fab fa-github text-xl"></i></a>
+                <a href="https://www.linkedin.com/in/yonatan-desalegn-19670510/" target="_blank"><i class="fab fa-linkedin text-xl"></i></a>
+                <a href="https://scholar.google.com/citations?user=igsM6loAAAAJ" target="_blank"><i class="fas fa-graduation-cap text-xl"></i></a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 text-center text-orange-300 text-sm mt-6">
+            &copy; 2025–2026 Yonatan D. Enaro. All rights reserved.
         </div>
     </footer>
 </body>

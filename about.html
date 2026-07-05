@@ -3,81 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Yonatan D. Enaro</title>
+    <title>About – Yonatan D. Enaro</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        :root {
-            --primary: #ea580c;
-            --primary-dark: #c2410c;
-            --secondary: #991b1b;
-            --accent: #f97316;
-            --bg-main: #fff7ed;
-            --border: #fed7aa;
-        }
-        
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: linear-gradient(135deg, #fff7ed 0%, #fef2f2 100%);
-            color: #1f1916;
-            line-height: 1.7;
-        }
-        
-        .nav-link {
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            color: var(--primary-dark);
-            text-decoration: none;
-        }
-        
-        .nav-link:hover {
-            background: var(--border);
-            color: var(--secondary);
-        }
-        
-        .nav-link.active {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-        }
-        
-        .section-title {
-            font-size: 2.25rem;
-            font-weight: 700;
-            color: var(--secondary);
-            margin-bottom: 2rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 3px solid var(--primary);
-        }
-        
-        .card {
-            background: white;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--border);
-            transition: transform 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-4px);
-        }
-        
-        .stat-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--secondary);
-        }
-    </style>
 </head>
 <body>
-    <nav class="bg-white shadow-md sticky top-0 z-50 border-b-2 border-orange-200">
+    <nav class="nav-bar">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
-                    <h1 class="text-xl font-bold text-red-800">Yonatan D. Enaro</h1>
-                    <span class="ml-3 text-sm text-orange-600">PhD Economist</span>
+                    <h1 class="text-xl font-bold" style="color:var(--secondary)">Yonatan D. Enaro</h1>
+                    <span class="ml-3 text-sm" style="color:var(--primary)">PhD Economist</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-1">
                     <a href="index.html" class="nav-link">Home</a>
@@ -91,71 +28,69 @@
         </div>
     </nav>
 
-    <section class="bg-gradient-to-r from-red-800 to-orange-600 text-white py-12">
-        <div class="max-w-7xl mx-auto px-6">
-            <h1 class="text-3xl font-bold">About Me</h1>
-            <p class="mt-2 opacity-90">Professional background and expertise</p>
-        </div>
-    </section>
-
     <section class="py-16">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="card p-8 mb-12">
+            <h2 class="section-title">About</h2>
+            <div class="card mb-12">
                 <p class="text-lg text-gray-700 leading-relaxed mb-6">
                     I am an Economist (Ph.D.) with over 15 years of experience in data science, monitoring and evaluation (M&E), and research in development interventions. Based in Addis Ababa, Ethiopia, I specialize in impact evaluation, survey design, and advanced statistical analysis, working across sectors like education, agriculture, and climate resilience.
                 </p>
                 <p class="text-lg text-gray-700 leading-relaxed">
-                    My work integrates rigorous methodologies with practical solutions to drive impactful outcomes. I have successfully led over 20 consultancy projects, managed large-scale surveys with 15K+ respondents, and published research on rural development and education in Ethiopia.
+                    My work integrates rigorous methodologies with practical solutions to drive impactful outcomes. I have successfully led 27 consultancy projects, managed large-scale surveys with 34K+ respondents, and published research on rural development and education in Ethiopia.
                 </p>
             </div>
 
-            <h2 class="section-title">Core Skills</h2>
+            <h2 class="section-title mt-12">Core Skills</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="card p-6">
-                    <h3 class="text-xl font-bold text-red-800 mb-4"><i class="fas fa-code mr-2 text-orange-600"></i> Technical Skills</h3>
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-4" style="color:var(--secondary)"><i class="fas fa-code mr-2" style="color:var(--primary)"></i> Technical Skills</h3>
                     <ul class="space-y-2 text-gray-600">
-                        <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Data cleaning, management, integration</li>
+                        <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Data cleaning, management, and integration</li>
                         <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Statistical analysis (Stata, R, Python, SPSS)</li>
                         <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Data visualization (Power BI, ArcGIS, QGIS)</li>
                         <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Survey design (ODK, KoboToolbox, SurveyCTO)</li>
+                        <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Econometrics (PSM, DiD, IV, RCT design)</li>
+                        <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Qualitative analysis (MaxQDA, NVivo)</li>
                     </ul>
                 </div>
-                <div class="card p-6">
-                    <h3 class="text-xl font-bold text-red-800 mb-4"><i class="fas fa-brain mr-2 text-orange-600"></i> Expertise Areas</h3>
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-4" style="color:var(--secondary)"><i class="fas fa-brain mr-2" style="color:var(--primary)"></i> Expertise Areas</h3>
                     <ul class="space-y-2 text-gray-600">
                         <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Impact evaluation (PSM, DiD, IV)</li>
                         <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Monitoring & evaluation frameworks</li>
                         <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Leadership & project management</li>
                         <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Report writing & presentations</li>
+                        <li><i class="fas fa-check-circle text-green-500 mr-2"></i>High-frequency data quality checks</li>
+                        <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Cost-effectiveness & CGE modelling</li>
                     </ul>
                 </div>
             </div>
 
-            <h2 class="section-title mt-16">Professional Stats</h2>
+            <h2 class="section-title mt-12">Professional Stats</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="card p-6 text-center">
-                    <div class="stat-number">22+</div>
+                    <div class="text-3xl font-bold" style="color:var(--primary)">27+</div>
                     <div class="text-sm text-gray-600">Projects</div>
                 </div>
                 <div class="card p-6 text-center">
-                    <div class="stat-number">15K+</div>
+                    <div class="text-3xl font-bold" style="color:var(--primary)">34K+</div>
                     <div class="text-sm text-gray-600">Respondents</div>
                 </div>
                 <div class="card p-6 text-center">
-                    <div class="stat-number">15+</div>
-                    <div class="text-sm text-gray-600">Years</div>
+                    <div class="text-3xl font-bold" style="color:var(--primary)">15+</div>
+                    <div class="text-sm text-gray-600">Years Experience</div>
                 </div>
                 <div class="card p-6 text-center">
-                    <div class="stat-number">6</div>
+                    <div class="text-3xl font-bold" style="color:var(--primary)">6</div>
                     <div class="text-sm text-gray-600">Publications</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gradient-to-r from-red-900 to-red-800 text-white py-8">
+    <footer class="footer">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <p>© 2025 Yonatan D. Enaro. All rights reserved.</p>
+            &copy; 2025–2026 Yonatan D. Enaro. All rights reserved.
         </div>
     </footer>
 </body>
