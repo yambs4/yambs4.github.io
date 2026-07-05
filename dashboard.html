@@ -3,182 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Dashboard - Dr. Yonatan Desalegn</title>
+    <title>Portfolio Dashboard - Yonatan D. Enaro</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        body { font-family: 'Inter', system-ui, sans-serif; @apply bg-gray-50; }
-        .section-header { @apply text-3xl font-bold text-gray-800 mb-6 border-b-2 border-teal-500 pb-2; }
-        .nav-link { @apply text-gray-600 hover:text-teal-600 transition-colors duration-300; }
-        .metric-card { @apply bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow; }
-        .metric-val { @apply text-3xl font-bold text-teal-600; }
-        .metric-label { @apply text-sm text-gray-500 font-medium mt-1; }
-        .project-card { @apply bg-white rounded-lg shadow-md p-5 hover:shadow-lg transition-shadow; }
+        :root {
+            --primary: #ea580c;
+            --primary-dark: #c2410c;
+            --secondary: #991b1b;
+            --accent: #f97316;
+            --bg-main: #fff7ed;
+            --border: #fed7aa;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: linear-gradient(135deg, #fff7ed 0%, #fef2f2 100%);
+            color: #1f1916;
+        }
+        
+        .nav-link {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+        
+        .nav-link:hover {
+            background: var(--border);
+            color: var(--secondary);
+        }
+        
+        .nav-link.active, .nav-active {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+        }
+        
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .dashboard-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .dashboard-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .stat-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .placeholder-box {
+            background: linear-gradient(135deg, #fff7ed, #ffffff);
+            border: 2px dashed var(--primary);
+            border-radius: 1rem;
+            padding: 3rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
     </style>
 </head>
 <body>
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
+    <nav class="bg-white shadow-md sticky top-0 z-50 border-b-2 border-orange-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
-                    <h1 class="text-xl font-bold text-gray-800">Yonatan D. Enaro</h1>
+                    <h1 class="text-xl font-bold text-red-800">Yonatan D. Enaro</h1>
                 </div>
-                <div class="flex items-center space-x-4">
+                <div class="hidden md:flex items-center space-x-1">
                     <a href="index.html" class="nav-link">Home</a>
-                    <a href="dashboard.html" class="nav-link font-semibold text-teal-600">Dashboard</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="projects.html" class="nav-link">Projects</a>
+                    <a href="dashboard.html" class="nav-link active">Dashboard</a>
                     <a href="blog/index.html" class="nav-link">Blog</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <section class="bg-teal-600 text-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 class="text-4xl font-bold mb-2">Portfolio Dashboard</h1>
-            <p class="text-lg">Interactive view of projects, skills, and publications</p>
+    <section class="bg-gradient-to-r from-red-800 to-orange-600 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <h1 class="text-3xl font-bold">Portfolio Dashboard</h1>
+            <p class="mt-2 opacity-90">Interactive view of projects, skills, and publications</p>
         </div>
     </section>
 
-    <section class="py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div id="metrics" class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-                <div class="metric-card"><div class="metric-val" id="project-count">22+</div><div class="metric-label">Projects Completed</div></div>
-                <div class="metric-card"><div class="metric-val" id="survey-count">15K+</div><div class="metric-label">Survey Respondents</div></div>
-                <div class="metric-card"><div class="metric-val" id="kiis-count">200+</div><div class="metric-label">KIIs Conducted</div></div>
-                <div class="metric-card"><div class="metric-val" id="pubs-count">6</div><div class="metric-label">Publications</div></div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-                <div class="bg-white rounded-lg shadow-md p-6"><div id="projects-by-type"></div></div>
-                <div class="bg-white rounded-lg shadow-md p-6"><div id="software-usage"></div></div>
-            </div>
-
-            <div class="bg-white rounded-lg shadow-md p-6 mb-12">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">Project Timeline</h2>
-                <div id="gantt-chart" style="height: 500px;"></div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h2 class="text-xl font-bold text-gray-800 mb-4">📊 Impact Metrics</h2>
-                    <div id="impact-chart"></div>
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="section-title">Dashboard Preview</h2>
+            
+            <div class="placeholder-box">
+                <i class="fas fa-rocket text-6xl text-orange-600 mb-6"></i>
+                <h3 class="text-2xl font-bold text-red-800 mb-4">Streamlit Dashboard Coming Soon</h3>
+                <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+                    An interactive Streamlit-powered dashboard will be available here showing live data visualizations, 
+                    project metrics, and filtering capabilities. Sign up for updates or contact me to access the beta version.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="contact.html" class="inline-block bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition">Request Access</a>
+                    <a href="https://github.com/yambs4/portfolio-dashboard" target="_blank" class="inline-block border border-orange-600 text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-orange-50 transition">View on GitHub</a>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h2 class="text-xl font-bold text-gray-800 mb-4">🔬 Methodologies</h2>
-                    <div class="space-y-3 text-sm">
-                        <div><strong>Impact Evaluation:</strong> PSM, DiD, IV</div>
-                        <div><strong>Survey Methods:</strong> Multi-stage, Stratified sampling</div>
-                        <div><strong>Statistical Analysis:</strong> Panel data, Multilevel modeling</div>
-                        <div><strong>ML/AI:</strong> Clustering, Classification</div>
-                    </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+                <div class="dashboard-card">
+                    <div class="stat-number">22+</div>
+                    <div class="text-sm text-gray-600 font-medium">Projects</div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="stat-number">15K+</div>
+                    <div class="text-sm text-gray-600 font-medium">Respondents</div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="stat-number">200+</div>
+                    <div class="text-sm text-gray-600 font-medium">KIIs</div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="stat-number">6</div>
+                    <div class="text-sm text-gray-600 font-medium">Publications</div>
+                </div>
+            </div>
+
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="dashboard-card">
+                    <h3 class="text-xl font-bold text-red-800 mb-4"><i class="fas fa-chart-pie mr-2 text-orange-600"></i> Features</h3>
+                    <ul class="text-left text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Interactive project filtering</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Timeline visualization</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Software proficiency charts</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Publication explorer</li>
+                    </ul>
+                </div>
+                <div class="dashboard-card">
+                    <h3 class="text-xl font-bold text-red-800 mb-4"><i class="fas fa-tools mr-2 text-orange-600"></i> Tech Stack</h3>
+                    <ul class="text-left text-gray-600 space-y-2">
+                        <li><i class="fas fa-code text-orange-600 mr-2"></i> Python & Streamlit</li>
+                        <li><i class="fas fa-chart-line text-orange-600 mr-2"></i> Plotly & Pandas</li>
+                        <li><i class="fas fa-database text-orange-600 mr-2"></i> Excel Data Integration</li>
+                        <li><i class="fas fa-cloud text-orange-600 mr-2"></i> Deployable to Streamlit Cloud</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-800 text-white py-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <footer class="bg-gradient-to-r from-red-900 to-red-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-6 text-center">
             <p>© 2025 Yonatan D. Enaro. All rights reserved.</p>
         </div>
     </footer>
-
-    <script>
-        const projectData = [
-            {title: "PSNP CD Evaluation", type: "Assessment", start: "2020-08-01", end: "2021-02-01", survey: 149, kiis: 12},
-            {title: "MSC Assessment", type: "Assessment", start: "2021-03-01", end: "2021-04-01", survey: 0, kiis: 9},
-            {title: "ENJOY Baseline", type: "Baseline", start: "2021-04-01", end: "2021-06-01", survey: 519, kiis: 80},
-            {title: "Africa RISING", type: "Literature review", start: "2021-05-01", end: "2021-12-01", survey: 0, kiis: 0},
-            {title: "Urban PSNP Baseline", type: "Baseline", start: "2021-04-01", end: "2021-08-01", survey: 4212, kiis: 0},
-        ];
-
-        const typeCounts = {};
-        projectData.forEach(p => {
-            typeCounts[p.type] = (typeCounts[p.type] || 0) + 1;
-        });
-
-        const figTypes = [{
-            type: 'pie',
-            labels: Object.keys(typeCounts),
-            values: Object.values(typeCounts),
-            marker: {colors: ['#14b8a6', '#0d9488', '#0f766e', '#115e56']},
-            textinfo: 'label+percent'
-        }];
-
-        Plotly.newPlot('projects-by-type', figTypes, {title: 'Projects by Type', height: 350, margin: {l: 20, r: 20, t: 40, b: 20}});
-
-        const softwareData = [
-            {name: "Stata", category: "Statistical", count: 18},
-            {name: "Python", category: "Programming", count: 12},
-            {name: "R", category: "Statistical", count: 8},
-            {name: "KoboToolbox", category: "Survey", count: 15},
-            {name: "SurveyCTO", category: "Survey", count: 6},
-            {name: "Power BI", category: "Visualization", count: 10},
-            {name: "ArcGIS", category: "GIS", count: 7},
-        ];
-
-        const figSw = [{
-            type: 'bar',
-            x: softwareData.map(d => d.count),
-            y: softwareData.map(d => d.name),
-            orientation: 'h',
-            marker: {color: '#14b8a6'}
-        }];
-
-        Plotly.newPlot('software-usage', figSw, {title: 'Software Usage Frequency', yaxis: {autorange: 'reversed'}, height: 350, margin: {l: 80, r: 20, t: 40, b: 20}});
-
-        const today = new Date();
-        const ganttData = projectData.map(p => ({
-            Task: p.title,
-            Start: new Date(p.start),
-            Finish: new Date(p.end),
-            Type: p.type
-        }));
-
-        const figGantt = [{
-            type: 'scatter',
-            mode: 'markers',
-            x: ganttData.map(d => d.Start),
-            y: ganttData.map(d => d.Task),
-            error_x: {
-                type: 'data',
-                symmetric: false,
-                array: ganttData.map(d => (d.Finish - d.Start) / (1000 * 60 * 60 * 24 * 30)),
-                arrayminus: ganttData.map(d => 0)
-            },
-            marker: {color: '#14b8a6', size: 12}
-        }];
-
-        Plotly.newPlot('gantt-chart', figGantt, {
-            title: 'Project Timeline',
-            xaxis: {title: 'Date'},
-            yaxis: {autorange: 'reversed'},
-            height: 450,
-            margin: {l: 200, r: 20, t: 40, b: 40}
-        });
-
-        const sectorData = [
-            {Sector: 'Agriculture', Beneficiaries: 4361},
-            {Sector: 'Education', Beneficiaries: 2095},
-            {Sector: 'Climate', Beneficiaries: 519},
-            {Sector: 'Urban Dev', Beneficiaries: 4212},
-            {Sector: 'Labor', Beneficiaries: 1556}
-        ];
-
-        const figImpact = [{
-            type: 'bar',
-            x: sectorData.map(d => d.Beneficiaries),
-            y: sectorData.map(d => d.Sector),
-            orientation: 'h',
-            marker: {color: '#14b8a6'}
-        }];
-
-        Plotly.newPlot('impact-chart', figImpact, {
-            title: 'Beneficiaries by Sector',
-            yaxis: {autorange: 'reversed'},
-            height: 250,
-            margin: {l: 80, r: 20, t: 40, b: 20}
-        });
-    </script>
 </body>
 </html>
