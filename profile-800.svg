@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- profile-800.svg: lightweight optimized avatar -->
+<svg xmlns='http://www.w3.org/2000/svg' width='800' height='800' viewBox='0 0 800 800'>
+  <rect width='100%' height='100%' fill='#fff7ed'/>
+  <circle cx='400' cy='320' r='240' fill='#ea580c'/>
+  <rect x='160' y='520' width='480' height='160' rx='40' fill='#c2410c'/>
+</svg>
