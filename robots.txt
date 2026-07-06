@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yambs4.github.io/sitemap.xml

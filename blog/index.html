@@ -1,6 +1,17 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Economic Insights Blog - Dr. Yonatan Desalegn</title>
+<meta name="description" content="Economic Insights Blog — development economics & data science analysis by Yonatan D. Enaro.">
+<link rel="canonical" href="https://yambs4.github.io/blog/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Economic Insights Blog - Dr. Yonatan Desalegn">
+<meta property="og:description" content="Development economics & data science analysis by Yonatan D. Enaro.">
+<meta property="og:url" content="https://yambs4.github.io/blog/">
+<meta property="og:image" content="https://yambs4.github.io/profile-400.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Economic Insights Blog - Dr. Yonatan Desalegn">
+<meta name="twitter:description" content="Development economics & data science analysis by Yonatan D. Enaro.">
+<meta name="twitter:image" content="https://yambs4.github.io/profile-400.png">
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <style>
@@ -14,19 +25,24 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-main);color:#1
 .blog-card:hover{transform:translateY(-4px)}
 .blog-title{color:var(--secondary);font-size:1.5rem;font-weight:700}
 .blog-meta{color:#6b7280;font-size:.875rem}
+.sr-only {position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip-link:focus {position:static;width:auto;height:auto;margin:1rem;padding:0.5rem 1rem;background:#111;color:#fff;z-index:9999;border-radius:4px;}
 </style>
 </head><body>
+<a class="skip-link sr-only" href="#main-content">Skip to main content</a>
 <nav class="bg-white shadow-md sticky top-0 z-50 border-b-2 border-orange-200">
 <div class="max-w-7xl mx-auto px-6">
 <div class="flex justify-between items-center h-20">
 <div class="flex items-center"><h1 class="text-xl font-bold text-red-800">Yonatan D. Enaro</h1></div>
-<div class="hidden md:flex items-center space-x-1">
+<div id="main-nav" class="hidden md:flex items-center space-x-1">
 <a href="../index.html" class="nav-link">Home</a>
 <a href="index.html" class="nav-link active">Blog</a>
 <a href="../dashboard.html" class="nav-link">Dashboard</a>
 <a href="../contact.html" class="nav-link">Contact</a>
-</div></div></div></nav>
-
+</div>
+<button id="mobile-nav-toggle" class="md:hidden text-orange-600 focus:outline-none" aria-expanded="false" aria-controls="main-nav"><i class="fas fa-bars text-2xl"></i></button>
+</div></div></nav>
+<main id="main-content" role="main">
 <section class="bg-gradient-to-r from-red-800 to-orange-600 text-white py-12">
 <div class="max-w-7xl mx-auto px-6"><h1 class="text-3xl font-bold">Economic Insights Blog</h1><p class="mt-2 opacity-90">Development economics & data science analysis</p></div>
 </section>
@@ -34,16 +50,28 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-main);color:#1
 <section class="py-16"><div class="max-w-4xl mx-auto px-6">
 <h2 class="section-title">Latest Articles</h2>
 
-<div class="blog-card"><h2 class="blog-title"><a href="posts/psnp-impact-evaluation.html">Using Propensity Score Matching to Evaluate PSNP Capacity Development Impact</a></h2><p class="blog-meta mb-3">January 15, 2025 | Impact Evaluation | R | 8 min read</p><p class="text-gray-600 mb-4">A deep dive into the methodology and findings from evaluating Ethiopia's Productive Safety Net Program capacity development initiatives using quasi-experimental methods.</p><a href="posts/psnp-impact-evaluation.html" class="text-orange-600 font-medium hover:text-red-700">Read more →</a></div>
+<div class="blog-card"><h2 class="blog-title"><a href="posts/psnp-impact-evaluation.html">Using Propensity Score Matching to Evaluate PSNP Capacity Development Impact</a></h2><p class="blog-meta m[...]</div>
 
-<div class="blog-card"><h2 class="blog-title"><a href="posts/climate-mobility-analysis.html">Human Mobility Patterns in Climate-Stressed Regions: Evidence from Afar and Somali</a></h2><p class="blog-meta mb-3">March 22, 2025 | Climate Economics | KoboToolbox | 6 min read</p><p class="text-gray-600 mb-4">Exploring how environmental shocks drive household migration decisions through mixed-methods research combining household surveys and key informant interviews.</p><a href="posts/climate-mobility-analysis.html" class="text-orange-600 font-medium hover:text-red-700">Read more →</a></div>
+<div class="blog-card"><h2 class="blog-title"><a href="posts/climate-mobility-analysis.html">Human Mobility Patterns in Climate-Stressed Regions: Evidence from Afar and Somali</a></h2><p class="bl[...]</div>
 
-<div class="blog-card"><h2 class="blog-title"><a href="posts/data-quality-mne.html">Ensuring Data Quality in Large-Scale M&E: Lessons from Urban PSNP Baseline</a></h2><p class="blog-meta mb-3">May 8, 2025 | Monitoring & Evaluation | Stata | 10 min read</p><p class="text-gray-600 mb-4">Best practices for maintaining data integrity across 4,050+ household surveys, 19 health facilities, and 143 communities in urban settings.</p><a href="posts/data-quality-mne.html" class="text-orange-600 font-medium hover:text-red-700">Read more →</a></div>
+<div class="blog-card"><h2 class="blog-title"><a href="posts/data-quality-mne.html">Ensuring Data Quality in Large-Scale M&E: Lessons from Urban PSNP Baseline</a></h2><p class="blog-meta mb-3">May[...]</div>
 
-<div class="blog-card"><h2 class="blog-title"><a href="posts/youth-employment-covid.html">Youth Aspirations and Resilience in the Post-COVID Era</a></h2><p class="blog-meta mb-3">July 10, 2025 | Labor Economics | SurveyCTO | 7 min read</p><p class="text-gray-600 mb-4">Synthesizing findings from Ethiopia's component in a 6-country study on youth employment challenges and adaptive strategies.</p><a href="posts/youth-employment-covid.html" class="text-orange-600 font-medium hover:text-red-700">Read more →</a></div>
+<div class="blog-card"><h2 class="blog-title"><a href="posts/youth-employment-covid.html">Youth Aspirations and Resilience in the Post-COVID Era</a></h2><p class="blog-meta mb-3">July 10, 2025 | L[...]</div>
 </div></section>
-
+</main>
 <footer class="bg-gradient-to-r from-red-900 to-red-800 text-white py-8">
 <div class="max-w-7xl mx-auto px-6 text-center"><p>© 2025 Yonatan D. Enaro. All rights reserved.</p></div>
 </footer>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const btn = document.getElementById('mobile-nav-toggle');
+  const menu = document.getElementById('main-nav');
+  if (!btn || !menu) return;
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', (!expanded).toString());
+  });
+});
+</script>
 </body></html>
