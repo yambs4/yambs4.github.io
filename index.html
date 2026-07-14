@@ -47,10 +47,10 @@
 </head>
 <body>
     <nav class="nav-bar" role="navigation" aria-label="Main navigation">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-center h-20">
+        <div class="max-w-7xl mx-auto container-tight">
+            <div class="flex justify-between items-center nav-bar-inner">
                 <div class="flex items-center">
-                    <h1 class="text-xl font-bold" style="color:var(--secondary)">Yonatan D. Enaro</h1>
+                    <h1 class="text-lg md:text-xl font-bold" style="color:var(--secondary)">Yonatan D. Enaro</h1>
                 </div>
                 <div class="hidden md:flex items-center space-x-1">
                     <a href="index.html" class="nav-link active" aria-current="page">Home</a>
@@ -65,70 +65,70 @@
             </div>
         </div>
         <div class="hidden md:hidden bg-white border-b" style="border-color:var(--border)" id="mobile-menu">
-            <div class="px-6 py-4 space-y-2">
-                <a href="index.html" class="block nav-link active" aria-current="page">Home</a>
-                <a href="projects.html" class="block nav-link">Projects</a>
-                <a href="dashboard.html" class="block nav-link">Dashboard</a>
-                <a href="blog/index.html" class="block nav-link">Blog</a>
-                <a href="contact.html" class="block nav-link">Contact</a>
+            <div class="container-tight py-3 space-y-1">
+                <a href="index.html" class="mobile-menu-link active" aria-current="page">Home</a>
+                <a href="projects.html" class="mobile-menu-link">Projects</a>
+                <a href="dashboard.html" class="mobile-menu-link">Dashboard</a>
+                <a href="blog/index.html" class="mobile-menu-link">Blog</a>
+                <a href="contact.html" class="mobile-menu-link">Contact</a>
             </div>
         </div>
     </nav>
 
     <main>
-    <header class="py-12 md:py-20" style="background:var(--bg-alt)">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+    <header class="py-10 md:py-16" style="background:var(--bg-alt)">
+        <div class="max-w-7xl mx-auto container-tight">
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10">
                 <div class="flex-shrink-0">
-                    <img src="profile.png" alt="Yonatan D. Enaro - Economist and Data Scientist" class="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover border-4" style="border-color:var(--border)" width="224" height="224">
+                    <img src="profile.png" alt="Yonatan D. Enaro - Economist and Data Scientist" class="w-32 h-32 md:w-56 md:h-56 rounded-full object-cover border-4" style="border-color:var(--border)" width="224" height="224" loading="eager">
                 </div>
                 <div class="text-center md:text-left flex-1">
-                    <h1 class="text-3xl md:text-5xl font-bold mb-3" style="color:var(--secondary)">Yonatan D. Enaro</h1>
+                    <h1 class="text-2xl md:text-5xl font-bold mb-3" style="color:var(--secondary)">Yonatan D. Enaro</h1>
                     <p class="text-lg md:text-xl mb-4" style="color:var(--primary)">Economist (Ph.D.) | Impact Evaluation, Survey Design & Data Science</p>
                     <p class="text-gray-600 max-w-2xl mb-6 text-base md:text-lg leading-relaxed">
                         I am an Economist (Ph.D.) with over 15 years of experience in data science, monitoring and evaluation (M&E), and research in development interventions. Based in Addis Ababa, Ethiopia, I specialize in impact evaluation, survey design, and advanced statistical analysis, working across sectors like education, agriculture, and climate resilience.
                     </p>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                        <div class="card p-4 text-center">
+                    <div class="hero-stats-grid mb-6 md:mb-8">
+                        <div class="card p-3 md:p-4 text-center">
                             <div class="text-2xl md:text-3xl font-bold" style="color:var(--primary)">27+</div>
-                            <div class="text-sm text-gray-500">Projects</div>
+                            <div class="text-xs md:text-sm text-gray-500">Projects</div>
                         </div>
-                        <div class="card p-4 text-center">
+                        <div class="card p-3 md:p-4 text-center">
                             <div class="text-2xl md:text-3xl font-bold" style="color:var(--primary)">34K+</div>
-                            <div class="text-sm text-gray-500">Respondents</div>
+                            <div class="text-xs md:text-sm text-gray-500">Respondents</div>
                         </div>
-                        <div class="card p-4 text-center">
+                        <div class="card p-3 md:p-4 text-center">
                             <div class="text-2xl md:text-3xl font-bold" style="color:var(--primary)">300+</div>
-                            <div class="text-sm text-gray-500">KIIs</div>
+                            <div class="text-xs md:text-sm text-gray-500">KIIs</div>
                         </div>
-                        <div class="card p-4 text-center">
+                        <div class="card p-3 md:p-4 text-center">
                             <div class="text-2xl md:text-3xl font-bold" style="color:var(--primary)">6</div>
-                            <div class="text-sm text-gray-500">Publications</div>
+                            <div class="text-xs md:text-sm text-gray-500">Publications</div>
                         </div>
                     </div>
-                    <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
                         <a href="projects.html" class="btn">View Projects</a>
-                        <a href="contact.html" class="btn" style="background:transparent;color:var(--primary);border:2px solid var(--primary)">Get in Touch</a>
+                        <a href="contact.html" class="btn-outline">Get in Touch</a>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="py-16" aria-labelledby="selected-papers-heading">
-        <div class="max-w-7xl mx-auto px-6">
+    <section class="py-10 md:py-16" aria-labelledby="selected-papers-heading">
+        <div class="max-w-7xl mx-auto container-tight">
             <h2 id="selected-papers-heading" class="section-title">Selected Papers</h2>
-            <div id="papers" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
-            <div class="mt-8">
+            <div id="papers" class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"></div>
+            <div class="mt-6 md:mt-8">
                 <a href="https://scholar.google.com/citations?user=igsM6loAAAAJ" target="_blank" class="project-link"><i class="fas fa-external-link-alt mr-1"></i>View all publications on Google Scholar</a>
             </div>
         </div>
     </section>
 
-    <section class="py-20 border-t" style="background:var(--bg-alt);border-color:var(--border)" aria-labelledby="selected-projects-heading">
-        <div class="max-w-7xl mx-auto px-6">
+    <section class="py-10 md:py-20 border-t" style="background:var(--bg-alt);border-color:var(--border)" aria-labelledby="selected-projects-heading">
+        <div class="max-w-7xl mx-auto container-tight">
             <h2 id="selected-projects-heading" class="section-title">Selected Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 <article class="project-card" itemscope itemtype="https://schema.org/CreativeWork">
                     <div class="project-meta">Terminal Evaluation · Ethiopia · May 2024 – Jun 2025</div>
                     <h3 class="project-title" itemprop="name">Mobility in a Changing Climate</h3>
@@ -190,7 +190,7 @@
                     </div>
                 </article>
             </div>
-            <div class="mt-10">
+            <div class="mt-8">
                 <a href="projects.html" class="btn">Browse All 27 Projects</a>
             </div>
         </div>
@@ -198,7 +198,7 @@
     </main>
 
     <footer class="footer" role="contentinfo">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+        <div class="max-w-7xl mx-auto container-tight flex flex-col md:flex-row justify-between items-center">
             <div>
                 <h3 class="text-lg font-bold">Yonatan D. Enaro</h3>
                 <p class="text-orange-200 text-sm">PhD Economist & Consulting Economist</p>
@@ -209,7 +209,7 @@
                 <a href="https://scholar.google.com/citations?user=igsM6loAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap text-xl"></i></a>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-6 text-center text-orange-300 text-sm mt-6">
+        <div class="max-w-7xl mx-auto container-tight text-center text-orange-300 text-sm mt-6">
             &copy; 2025–2026 Yonatan D. Enaro. All rights reserved.
         </div>
     </footer>
