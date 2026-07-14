@@ -3,13 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of 27+ projects by Yonatan D. Enaro - Economist & Data Scientist. Impact evaluations, research, and advisory assignments across development sectors.">
+    <meta name="keywords" content="projects, impact evaluation, M&E, development, Ethiopia, economist, data scientist, portfolio">
+    <meta name="author" content="Yonatan D. Enaro">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Projects – Yonatan D. Enaro">
+    <meta property="og:description" content="A running list of 27+ research, evaluation, and advisory assignments across development sectors.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yambs4.github.io/projects.html">
+    <meta property="og:image" content="https://yambs4.github.io/profile.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Projects – Yonatan D. Enaro">
+    <meta name="twitter:description" content="A running list of 27+ research, evaluation, and advisory assignments across development sectors.">
+    <meta name="twitter:image" content="https://yambs4.github.io/profile.png">
+    <link rel="canonical" href="https://yambs4.github.io/projects.html">
     <title>Projects – Yonatan D. Enaro</title>
+    <link rel="icon" type="image/svg+xml" href="profile.svg">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-    <nav class="nav-bar">
+    <nav class="nav-bar" role="navigation" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
@@ -18,7 +33,7 @@
                 <div class="hidden md:flex items-center space-x-1">
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="about.html" class="nav-link">About</a>
-                    <a href="projects.html" class="nav-link active">Projects</a>
+                    <a href="projects.html" class="nav-link active" aria-current="page">Projects</a>
                     <a href="dashboard.html" class="nav-link">Dashboard</a>
                     <a href="blog/index.html" class="nav-link">Blog</a>
                     <a href="contact.html" class="nav-link">Contact</a>
@@ -27,12 +42,13 @@
         </div>
     </nav>
 
+    <main>
     <section class="py-12 border-b" style="background:var(--bg-alt);border-color:var(--border)">
         <div class="max-w-7xl mx-auto px-6">
             <h1 class="text-3xl font-bold" style="color:var(--secondary)">Projects & Consultancies</h1>
             <p class="mt-2 text-gray-600 max-w-3xl">A running list of research, evaluation, and advisory assignments across development sectors. Three core repositories with reproducible code are linked where available.</p>
             <div class="mt-4 flex flex-wrap items-center gap-3">
-                <select id="typeFilter" class="border rounded-lg px-3 py-2 text-sm" style="border-color:var(--border);color:var(--text-dark)">
+                <select id="typeFilter" class="border rounded-lg px-3 py-2 text-sm" style="border-color:var(--border);color:var(--text-dark)" aria-label="Filter projects by type">
                     <option value="all">All types</option>
                 </select>
                 <span id="count" class="text-sm text-gray-500"></span>
@@ -45,17 +61,18 @@
             <div id="projects" class="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
         </div>
     </section>
+    </main>
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
             <div>
                 <h3 class="text-lg font-bold">Yonatan D. Enaro</h3>
                 <p class="text-orange-200 text-sm">PhD Economist & Consulting Economist</p>
             </div>
             <div class="flex space-x-4 mt-4 md:mt-0">
-                <a href="https://github.com/yambs4" target="_blank"><i class="fab fa-github text-xl"></i></a>
-                <a href="https://www.linkedin.com/in/yonatan-desalegn-19670510/" target="_blank"><i class="fab fa-linkedin text-xl"></i></a>
-                <a href="https://scholar.google.com/citations?user=igsM6loAAAAJ" target="_blank"><i class="fas fa-graduation-cap text-xl"></i></a>
+                <a href="https://github.com/yambs4" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
+                <a href="https://www.linkedin.com/in/yonatan-desalegn-19670510/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin text-xl"></i></a>
+                <a href="https://scholar.google.com/citations?user=igsM6loAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap text-xl"></i></a>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-6 text-center text-orange-300 text-sm mt-6">
@@ -88,14 +105,16 @@
                     const counts = [];
                     if (p.respondents > 0) counts.push(`<span>${p.respondents.toLocaleString()} responses</span>`);
                     if (p.kiis > 0) counts.push(`<span>${p.kiis} KIIs</span>`);
-                    const repo = p.repo ? `<a class="project-link" href="${p.repo}" target="_blank"><i class="fab fa-github mr-1"></i>Code repository</a>` : `<span class="text-sm text-gray-500">Repository: Private / NDA-protected</span>`;
-                    const card = document.createElement('div');
+                    const repo = p.repo ? `<a class="project-link" href="${p.repo}" target="_blank" rel="noopener noreferrer"><i class="fab fa-github mr-1"></i>Code repository</a>` : `<span class="text-sm text-gray-500">Repository: Private / NDA-protected</span>`;
+                    const card = document.createElement('article');
                     card.className = 'project-card';
+                    card.setAttribute('itemscope', '');
+                    card.setAttribute('itemtype', 'https://schema.org/CreativeWork');
                     card.innerHTML = `
                         <div class="project-meta">${p.type} &middot; ${p.duration} &middot; ${p.location}</div>
-                        <div class="project-title">${p.title}</div>
+                        <div class="project-title" itemprop="name">${p.title}</div>
                         <div class="text-sm text-gray-600 mb-2">${p.client}${p.donor ? ' · ' + p.donor : ''}</div>
-                        <p class="project-desc mb-3">${p.description}</p>
+                        <p class="project-desc mb-3" itemprop="description">${p.description}</p>
                         <div class="flex flex-wrap mb-3">${tech}</div>
                         <div class="flex items-center justify-between">
                             <div class="text-sm text-gray-500">${counts.join(' · ')}</div>

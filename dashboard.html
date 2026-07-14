@@ -3,13 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive portfolio dashboard for Yonatan D. Enaro - explore 27+ projects, impact metrics, timelines, and filters for development evaluation work.">
+    <meta name="keywords" content="dashboard, portfolio, interactive, impact evaluation, metrics, timeline, M&E, Ethiopia">
+    <meta name="author" content="Yonatan D. Enaro">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Portfolio Dashboard – Yonatan D. Enaro">
+    <meta property="og:description" content="Interactive CV explorer with filters, timelines, and impact metrics for 27+ development projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yambs4.github.io/dashboard.html">
+    <meta property="og:image" content="https://yambs4.github.io/profile.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Portfolio Dashboard – Yonatan D. Enaro">
+    <meta name="twitter:description" content="Interactive CV explorer with filters, timelines, and impact metrics for 27+ development projects.">
+    <meta name="twitter:image" content="https://yambs4.github.io/profile.png">
+    <link rel="canonical" href="https://yambs4.github.io/dashboard.html">
     <title>Portfolio Dashboard – Yonatan D. Enaro</title>
+    <link rel="icon" type="image/svg+xml" href="profile.svg">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-    <nav class="nav-bar">
+    <nav class="nav-bar" role="navigation" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
@@ -19,7 +34,7 @@
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="about.html" class="nav-link">About</a>
                     <a href="projects.html" class="nav-link">Projects</a>
-                    <a href="dashboard.html" class="nav-link active">Dashboard</a>
+                    <a href="dashboard.html" class="nav-link active" aria-current="page">Dashboard</a>
                     <a href="blog/index.html" class="nav-link">Blog</a>
                     <a href="contact.html" class="nav-link">Contact</a>
                 </div>
@@ -27,6 +42,7 @@
         </div>
     </nav>
 
+    <main>
     <section class="py-12 border-b" style="background:var(--bg-alt);border-color:var(--border)">
         <div class="max-w-7xl mx-auto px-6">
             <h1 class="text-3xl font-bold" style="color:var(--secondary)">Portfolio Dashboard</h1>
@@ -54,21 +70,22 @@
             <div class="card mb-8">
                 <h2 class="text-xl font-bold mb-2" style="color:var(--secondary)">Interactive Portfolio Dashboard</h2>
                 <p class="text-gray-600 mb-6">Open the full Streamlit dashboard in a new tab to explore filters, timelines, and impact metrics.</p>
-                <a href="https://cvbuild-tt7s6pbscdiah4grgjrtef.streamlit.app/" target="_blank" class="btn"><i class="fas fa-external-link-alt mr-2"></i>Open Portfolio Dashboard</a>
+                <a href="https://cvbuild-tt7s6pbscdiah4grgjrtef.streamlit.app/" target="_blank" rel="noopener noreferrer" class="btn"><i class="fas fa-external-link-alt mr-2"></i>Open Portfolio Dashboard</a>
             </div>
         </div>
     </section>
+    </main>
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
             <div>
                 <h3 class="text-lg font-bold">Yonatan D. Enaro</h3>
                 <p class="text-orange-200 text-sm">PhD Economist & Consulting Economist</p>
             </div>
             <div class="flex space-x-4 mt-4 md:mt-0">
-                <a href="https://github.com/yambs4" target="_blank"><i class="fab fa-github text-xl"></i></a>
-                <a href="https://www.linkedin.com/in/yonatan-desalegn-19670510/" target="_blank"><i class="fab fa-linkedin text-xl"></i></a>
-                <a href="https://scholar.google.com/citations?user=igsM6loAAAAJ" target="_blank"><i class="fas fa-graduation-cap text-xl"></i></a>
+                <a href="https://github.com/yambs4" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
+                <a href="https://www.linkedin.com/in/yonatan-desalegn-19670510/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin text-xl"></i></a>
+                <a href="https://scholar.google.com/citations?user=igsM6loAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap text-xl"></i></a>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-6 text-center text-orange-300 text-sm mt-6">

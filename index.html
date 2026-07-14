@@ -3,35 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Yonatan D. Enaro - Economist & Data Scientist specializing in impact evaluation, survey design, and data science in Ethiopia and across Africa.">
+    <meta name="description" content="Yonatan D. Enaro is an Economist (Ph.D.) with over 15 years of experience in impact evaluation, survey design, data science, and development research across Ethiopia and Africa.">
+    <meta name="keywords" content="economist, data scientist, impact evaluation, monitoring and evaluation, survey design, Ethiopia, development economics, Propensity Score Matching, RCT, Stata, R, Python, M&E consultant">
+    <meta name="author" content="Yonatan D. Enaro">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Yonatan D. Enaro – Economist & Data Scientist">
+    <meta property="og:description" content="Economist (Ph.D.) specializing in impact evaluation, survey design, and data science in Ethiopia and across Africa.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yambs4.github.io/">
+    <meta property="og:image" content="https://yambs4.github.io/profile.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Yonatan D. Enaro – Economist & Data Scientist">
+    <meta name="twitter:description" content="Economist (Ph.D.) specializing in impact evaluation, survey design, and data science in Ethiopia and across Africa.">
+    <meta name="twitter:image" content="https://yambs4.github.io/profile.png">
+    <link rel="canonical" href="https://yambs4.github.io/">
     <title>Yonatan D. Enaro – Economist & Data Scientist</title>
     <link rel="icon" type="image/svg+xml" href="profile.svg">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Yonatan D. Enaro",
+        "url": "https://yambs4.github.io/",
+        "image": "https://yambs4.github.io/profile.png",
+        "jobTitle": "Economist & Data Scientist",
+        "description": "Economist (Ph.D.) with over 15 years of experience in impact evaluation, survey design, and data science in Ethiopia and across Africa.",
+        "knowsAbout": ["Impact Evaluation", "Monitoring and Evaluation", "Survey Design", "Data Science", "Econometrics", "Propensity Score Matching", "Difference-in-Differences", "RCT Design", "Stata", "R", "Python"],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Addis Ababa",
+            "addressCountry": "Ethiopia"
+        },
+        "sameAs": [
+            "https://github.com/yambs4",
+            "https://www.linkedin.com/in/yonatan-desalegn-19670510/",
+            "https://scholar.google.com/citations?user=igsM6loAAAAJ"
+        ]
+    }
+    </script>
 </head>
 <body>
-    <nav class="nav-bar">
+    <nav class="nav-bar" role="navigation" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
                     <h1 class="text-xl font-bold" style="color:var(--secondary)">Yonatan D. Enaro</h1>
                 </div>
                 <div class="hidden md:flex items-center space-x-1">
-                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="index.html" class="nav-link active" aria-current="page">Home</a>
                     <a href="projects.html" class="nav-link">Projects</a>
                     <a href="dashboard.html" class="nav-link">Dashboard</a>
                     <a href="blog/index.html" class="nav-link">Blog</a>
                     <a href="contact.html" class="nav-link">Contact</a>
                 </div>
-                <button class="md:hidden text-2xl" id="mobile-menu-btn" style="color:var(--primary)" aria-label="Toggle menu">
+                <button class="md:hidden text-2xl" id="mobile-menu-btn" style="color:var(--primary)" aria-label="Toggle menu" aria-expanded="false">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
         <div class="hidden md:hidden bg-white border-b" style="border-color:var(--border)" id="mobile-menu">
             <div class="px-6 py-4 space-y-2">
-                <a href="index.html" class="block nav-link active">Home</a>
+                <a href="index.html" class="block nav-link active" aria-current="page">Home</a>
                 <a href="projects.html" class="block nav-link">Projects</a>
                 <a href="dashboard.html" class="block nav-link">Dashboard</a>
                 <a href="blog/index.html" class="block nav-link">Blog</a>
@@ -40,11 +75,12 @@
         </div>
     </nav>
 
+    <main>
     <header class="py-12 md:py-20" style="background:var(--bg-alt)">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                 <div class="flex-shrink-0">
-                    <img src="profile.png" alt="Yonatan D. Enaro" class="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover border-4" style="border-color:var(--border)">
+                    <img src="profile.png" alt="Yonatan D. Enaro - Economist and Data Scientist" class="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover border-4" style="border-color:var(--border)" width="224" height="224">
                 </div>
                 <div class="text-center md:text-left flex-1">
                     <h1 class="text-3xl md:text-5xl font-bold mb-3" style="color:var(--secondary)">Yonatan D. Enaro</h1>
@@ -79,9 +115,9 @@
         </div>
     </header>
 
-    <section class="py-16">
+    <section class="py-16" aria-labelledby="selected-papers-heading">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="section-title">Selected Papers</h2>
+            <h2 id="selected-papers-heading" class="section-title">Selected Papers</h2>
             <div id="papers" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
             <div class="mt-8">
                 <a href="https://scholar.google.com/citations?user=igsM6loAAAAJ" target="_blank" class="project-link"><i class="fas fa-external-link-alt mr-1"></i>View all publications on Google Scholar</a>
@@ -89,14 +125,14 @@
         </div>
     </section>
 
-    <section class="py-20 border-t" style="background:var(--bg-alt);border-color:var(--border)">
+    <section class="py-20 border-t" style="background:var(--bg-alt);border-color:var(--border)" aria-labelledby="selected-projects-heading">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="section-title">Selected Projects</h2>
+            <h2 id="selected-projects-heading" class="section-title">Selected Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <article class="project-card">
+                <article class="project-card" itemscope itemtype="https://schema.org/CreativeWork">
                     <div class="project-meta">Terminal Evaluation · Ethiopia · May 2024 – Jun 2025</div>
-                    <h3 class="project-title">Mobility in a Changing Climate</h3>
-                    <p class="project-desc mb-3">Led quant-qual fieldwork in Afar and Somali, produced analytical report, capacity-building toolbox, and uptake assessment.</p>
+                    <h3 class="project-title" itemprop="name">Mobility in a Changing Climate</h3>
+                    <p class="project-desc mb-3" itemprop="description">Led quant-qual fieldwork in Afar and Somali, produced analytical report, capacity-building toolbox, and uptake assessment.</p>
                     <div class="flex flex-wrap mb-3">
                         <span class="tag">Stata</span>
                         <span class="tag">R</span>
@@ -108,10 +144,10 @@
                         <a href="projects.html" class="project-link">Details →</a>
                     </div>
                 </article>
-                <article class="project-card">
+                <article class="project-card" itemscope itemtype="https://schema.org/CreativeWork">
                     <div class="project-meta">Terminal Evaluation · Ethiopia · May 2024 – May 2025</div>
-                    <h3 class="project-title">Speed School Tracer Study</h3>
-                    <p class="project-desc mb-3">Impact evaluation of alternative education using PSM; designed tools, managed KoboToolbox deployment, and authored tracer report.</p>
+                    <h3 class="project-title" itemprop="name">Speed School Tracer Study</h3>
+                    <p class="project-desc mb-3" itemprop="description">Impact evaluation of alternative education using PSM; designed tools, managed KoboToolbox deployment, and authored tracer report.</p>
                     <div class="flex flex-wrap mb-3">
                         <span class="tag">Stata</span>
                         <span class="tag">R</span>
@@ -123,10 +159,10 @@
                         <a href="https://github.com/yambs4/SSP_tracer_study" target="_blank" class="project-link"><i class="fab fa-github mr-1"></i>Repository</a>
                     </div>
                 </article>
-                <article class="project-card">
+                <article class="project-card" itemscope itemtype="https://schema.org/CreativeWork">
                     <div class="project-meta">Terminal Evaluation · Ethiopia · Apr 2025 – Aug 2025</div>
-                    <h3 class="project-title">CBT & DIF Methodology Evaluation</h3>
-                    <p class="project-desc mb-3">PSM impact evaluation and logframe population for governance and food security program across four regions.</p>
+                    <h3 class="project-title" itemprop="name">CBT & DIF Methodology Evaluation</h3>
+                    <p class="project-desc mb-3" itemprop="description">PSM impact evaluation and logframe population for governance and food security program across four regions.</p>
                     <div class="flex flex-wrap mb-3">
                         <span class="tag">Python</span>
                         <span class="tag">R</span>
@@ -138,10 +174,10 @@
                         <a href="https://github.com/yambs4/TLMIE_endline_eval" target="_blank" class="project-link"><i class="fab fa-github mr-1"></i>Repository</a>
                     </div>
                 </article>
-                <article class="project-card">
+                <article class="project-card" itemscope itemtype="https://schema.org/CreativeWork">
                     <div class="project-meta">Evaluation · Amhara & Oromia · Dec 2025 – Feb 2026</div>
-                    <h3 class="project-title">Family MUAC Pilot Study Endline</h3>
-                    <p class="project-desc mb-3">Cluster RCT (3 arms, 1,463 caregiver-child pairs) evaluating caregiver training and cost-effectiveness of acute malnutrition screening.</p>
+                    <h3 class="project-title" itemprop="name">Family MUAC Pilot Study Endline</h3>
+                    <p class="project-desc mb-3" itemprop="description">Cluster RCT (3 arms, 1,463 caregiver-child pairs) evaluating caregiver training and cost-effectiveness of acute malnutrition screening.</p>
                     <div class="flex flex-wrap mb-3">
                         <span class="tag">Stata</span>
                         <span class="tag">Excel</span>
@@ -159,17 +195,18 @@
             </div>
         </div>
     </section>
+    </main>
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
             <div>
                 <h3 class="text-lg font-bold">Yonatan D. Enaro</h3>
                 <p class="text-orange-200 text-sm">PhD Economist & Consulting Economist</p>
             </div>
             <div class="flex space-x-4 mt-4 md:mt-0">
-                <a href="https://github.com/yambs4" target="_blank"><i class="fab fa-github text-xl"></i></a>
-                <a href="https://www.linkedin.com/in/yonatan-desalegn-19670510/" target="_blank"><i class="fab fa-linkedin text-xl"></i></a>
-                <a href="https://scholar.google.com/citations?user=igsM6loAAAAJ" target="_blank"><i class="fas fa-graduation-cap text-xl"></i></a>
+                <a href="https://github.com/yambs4" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
+                <a href="https://www.linkedin.com/in/yonatan-desalegn-19670510/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin text-xl"></i></a>
+                <a href="https://scholar.google.com/citations?user=igsM6loAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap text-xl"></i></a>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-6 text-center text-orange-300 text-sm mt-6">
@@ -179,7 +216,9 @@
 
     <script>
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            this.setAttribute('aria-expanded', !menu.classList.contains('hidden'));
         });
 
         async function loadPapers() {
@@ -189,18 +228,20 @@
                 const container = document.getElementById('papers');
                 container.innerHTML = '';
                 data.papers.forEach(paper => {
-                    const card = document.createElement('div');
+                    const card = document.createElement('article');
                     card.className = 'card';
+                    card.setAttribute('itemscope', '');
+                    card.setAttribute('itemtype', 'https://schema.org/ScholarlyArticle');
                     card.innerHTML = `
-                        <h3 class="text-lg font-bold mb-2" style="color:var(--secondary)">${paper.title}</h3>
-                        <p class="text-sm text-gray-500 mb-2">${paper.journal} · ${paper.year}</p>
-                        <p class="text-gray-600 mb-3">${paper.description}</p>
-                        <a href="${paper.url}" target="_blank" class="project-link"><i class="fas fa-external-link-alt mr-1"></i>View Paper</a>
+                        <h3 class="text-lg font-bold mb-2" style="color:var(--secondary)" itemprop="headline">${paper.title}</h3>
+                        <p class="text-sm text-gray-500 mb-2" itemprop="author">${paper.journal} · ${paper.year}</p>
+                        <p class="text-gray-600 mb-3" itemprop="description">${paper.description}</p>
+                        <a href="${paper.url}" target="_blank" rel="noopener noreferrer" class="project-link" itemprop="url"><i class="fas fa-external-link-alt mr-1"></i>View Paper</a>
                     `;
                     container.appendChild(card);
                 });
             } catch (e) {
-                document.getElementById('papers').innerHTML = '<p class="text-gray-500">Selected publications available on <a href="https://scholar.google.com/citations?user=igsM6loAAAAJ" target="_blank" class="project-link">Google Scholar</a>.</p>';
+                document.getElementById('papers').innerHTML = '<p class="text-gray-500">Selected publications available on <a href="https://scholar.google.com/citations?user=igsM6loAAAAJ" target="_blank" rel="noopener noreferrer" class="project-link">Google Scholar</a>.</p>';
             }
         }
 
