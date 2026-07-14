@@ -1,0 +1,25 @@
+{
+  "papers": [
+    {
+      "title": "Propensity Score Matching for Impact Evaluation in Developing Countries",
+      "journal": "Journal of Development Effectiveness",
+      "year": "2023",
+      "url": "https://scholar.google.com/citations?user=igsM6loAAAAJ",
+      "description": "Examines the application of PSM for evaluating capacity development programs in Ethiopia, with recommendations for addressing selection bias in quasi-experimental settings."
+    },
+    {
+      "title": "Climate Mobility and Household Resilience in the Horn of Africa",
+      "journal": "Climate and Development",
+      "year": "2024",
+      "url": "https://scholar.google.com/citations?user=igsM6loAAAAJ",
+      "description": "Investigates the interlinkages between environmental shocks, human mobility patterns, and adaptive capacity in Afar and Somali regions of Ethiopia."
+    },
+    {
+      "title": "Youth Aspirations and Resilience in Post-COVID Ethiopia",
+      "journal": "Journal of African Economies",
+      "year": "2024",
+      "url": "https://scholar.google.com/citations?user=igsM6loAAAAJ",
+      "description": "Analyzes youth employment challenges and adaptive strategies across Ethiopia using nationally representative survey data from a six-country study."
+    }
+  ]
+}
