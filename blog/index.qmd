@@ -1,0 +1,22 @@
+---
+title: "Economic Insights Blog"
+listing:
+  contents: posts/*.qmd
+  sort: "date desc"
+  type: default
+  categories: true
+  categories-description: ""
+---
+
+<section class="bg-gradient-to-r from-red-800 to-orange-600 text-white py-10 md:py-12">
+  <div class="max-w-7xl mx-auto container-tight">
+    <h1 class="text-2xl md:text-3xl font-bold">Economic Insights Blog</h1>
+    <p class="mt-2 opacity-90 text-sm md:text-base">Development economics & data science analysis</p>
+  </div>
+</section>
+
+<section class="py-8 md:py-16">
+  <div class="max-w-4xl mx-auto container-tight">
+    <h2 class="section-title">Latest Articles</h2>
+  </div>
+</section>

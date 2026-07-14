@@ -1,0 +1,65 @@
+project:
+  type: blog
+  output-dir: .
+
+blog:
+  type: blog
+  posts:
+    - posts/*.qmd
+  sort: "date desc"
+
+website:
+  title: "Economic Insights Blog"
+  navbar:
+    left:
+      - text: "Home"
+        href: ../index.html
+      - text: "Blog"
+        href: index.html
+      - text: "Dashboard"
+        href: ../dashboard.html
+      - text: "Contact"
+        href: ../contact.html
+  body-header: |
+    <nav class="bg-white shadow-md sticky top-0 z-50 border-b-2 border-orange-200" role="navigation" aria-label="Main navigation">
+      <div class="max-w-7xl mx-auto container-tight">
+        <div class="flex justify-between items-center nav-bar-inner">
+          <div class="flex items-center"><h1 class="text-lg md:text-xl font-bold text-red-800">Yonatan D. Enaro</h1></div>
+          <div class="hidden md:flex items-center space-x-1">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="index.html" class="nav-link active" aria-current="page">Blog</a>
+            <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+          </div>
+          <button class="md:hidden text-2xl" id="mobile-menu-btn" style="color:var(--primary)" aria-label="Toggle menu" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div class="hidden md:hidden bg-white border-b" style="border-color:var(--border)" id="mobile-menu">
+      <div class="container-tight py-3 space-y-1">
+        <a href="../index.html" class="mobile-menu-link">Home</a>
+        <a href="index.html" class="mobile-menu-link active" aria-current="page">Blog</a>
+        <a href="../dashboard.html" class="mobile-menu-link">Dashboard</a>
+        <a href="../contact.html" class="mobile-menu-link">Contact</a>
+      </div>
+    </div>
+  body-footer: |
+    <footer class="bg-gradient-to-r from-red-900 to-red-800 text-white py-6 md:py-8" role="contentinfo">
+      <div class="max-w-7xl mx-auto container-tight text-center"><p class="text-sm md:text-base">&copy; 2025 Yonatan D. Enaro. All rights reserved.</p></div>
+    </footer>
+    <script>
+      document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+        this.setAttribute('aria-expanded', !menu.classList.contains('hidden'));
+      });
+    </script>
+
+format:
+  html:
+    css: styles.css
+
+execute:
+  echo: false

@@ -1,0 +1,8 @@
+---
+title: "Human Mobility Patterns in Climate-Stressed Regions: Evidence from Afar and Somali"
+author: "Yonatan D. Enaro"
+date: "2025-03-22"
+categories: [Climate Economics, KoboToolbox]
+---
+
+Exploring how environmental shocks drive household migration decisions through mixed-methods research combining household surveys and key informant interviews in Ethiopia's Afar and Somali regions.

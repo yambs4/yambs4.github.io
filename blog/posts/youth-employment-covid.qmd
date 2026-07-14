@@ -1,0 +1,36 @@
+---
+title: "Youth Aspirations and Resilience in the Post-COVID Era"
+author: "Yonatan D. Enaro"
+date: "2025-07-10"
+categories: [Labor Economics, SurveyCTO]
+---
+
+Synthesizing findings from Ethiopia's component in a 6-country study on youth employment challenges and adaptive strategies.
+
+## Background
+
+The COVID-19 pandemic disrupted labor markets globally, with youth bearing a disproportionate share of job losses. Understanding how young people adapt requires nationally representative data and cross-national comparisons.
+
+## Methodology
+
+This analysis draws from the Africa Youth Aspirations & Resilience Survey (AYPReS), a 6-country study covering Ethiopia, Kenya, Nigeria, Ghana, Uganda, and Tanzania. In Ethiopia, we surveyed 1,556 youth across 9 regions using SurveyCTO.
+
+```{r}
+#| eval: false
+#| echo: true
+# Youth employment analysis
+tabulate employment_status age_group, row chi2
+* Employment sector shifts post-COVID
+graph bar (mean) employment_rate, over(year) ...
+```
+
+## Key Findings
+
+- 34% of youth reported income loss during the pandemic
+- Self-employment increased by 12 percentage points
+- Digital literacy emerged as a key resilience factor
+- Female youth faced double the employment shock
+
+## Policy Implications
+
+Policymakers should prioritize digital skills training, youth entrepreneurship support, and gender-targeted interventions to build back better.

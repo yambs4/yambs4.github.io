@@ -1,0 +1,40 @@
+---
+title: "Ensuring Data Quality in Large-Scale M&E: Lessons from Urban PSNP Baseline"
+author: "Yonatan D. Enaro"
+date: "2025-05-08"
+categories: [Monitoring & Evaluation, Stata]
+---
+
+Best practices for maintaining data integrity across 4,050+ household surveys, 19 health facilities, and 143 communities in urban settings.
+
+## Introduction
+
+Data quality is the cornerstone of credible monitoring and evaluation. In large-scale baseline surveys, ensuring high-quality data requires robust systems, real-time checks, and clear protocols.
+
+## Key Lessons
+
+- Implement high-frequency data quality checks during fieldwork
+- Use multi-stage sampling with clear Enumeration Area definitions
+- Conduct enumerator training with practical exercises
+- Establish feedback loops with supervisors
+
+## Urban PSNP Baseline Experience
+
+The Urban PSNP Baseline survey covered 4,050+ households across 143 communities in Addis Ababa. We employed ODK and Stata for data collection and cleaning, achieving a completion rate of 92%.
+
+```{r}
+#| eval: false
+#| echo: true
+* Data cleaning workflow
+use "urban_psnp_baseline.dta", clear
+* Check for missing values
+misstable summarize
+* Outlier detection
+summarize consumption, detail
+* Harmonize categorical variables
+label define yesno 0 "No" 1 "Yes"
+```
+
+## Conclusion
+
+Maintaining data quality in large-scale surveys requires proactive measures, not just reactive fixes. Investing in robust systems pays off in reliable, actionable evidence.
